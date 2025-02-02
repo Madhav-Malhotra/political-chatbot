@@ -7,15 +7,19 @@ import json
 import time
 import xml.etree.ElementTree as ET
 
+
 def get_chromedriver():
     """Initialize ChromeDriver for Selenium."""
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")  # Run browser in headless mode
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
-    service = Service("/usr/local/bin/chromedriver")  # Update this to your ChromeDriver path
+    service = Service(
+        "/usr/local/bin/chromedriver"
+    )  # Update this to your ChromeDriver path
     driver = webdriver.Chrome(service=service, options=options)
     return driver
+
 
 def scrape_bills_list(driver):
     """Scrape the main bills page."""
@@ -25,7 +29,7 @@ def scrape_bills_list(driver):
 
     # Get page source and parse with BeautifulSoup
     soup = BeautifulSoup(driver.page_source, "html.parser")
-    
+
     # Find all bill containers
     bill_divs = soup.select("div.column.column-block.twoline.overflowtip")
 
@@ -38,16 +42,20 @@ def scrape_bills_list(driver):
             bill_title = a_tag.next_sibling.strip() if a_tag.next_sibling else None
             bill_url = base_url + a_tag["href"]
             status_tag = div.find("span", class_="tag")
+            # Jordan - fix unknown status
             bill_status = status_tag.text.strip() if status_tag else "Unknown"
 
-            bills.append({
-                "id": bill_id,
-                "title": bill_title,
-                "url": bill_url,
-                "status": bill_status,
-            })
+            bills.append(
+                {
+                    "id": bill_id,
+                    "title": bill_title,
+                    "url": bill_url,
+                    "status": bill_status,
+                }
+            )
 
     return bills
+
 
 def scrape_bill_details(bill):
     """Scrape detailed information and XML content for a single bill."""
@@ -59,11 +67,15 @@ def scrape_bill_details(bill):
 
         # Extract subtitle
         subtitle_tag = soup.find("h3")
-        bill["subtitle"] = subtitle_tag.text.strip() if subtitle_tag else "No subtitle available"
+        bill["subtitle"] = (
+            subtitle_tag.text.strip() if subtitle_tag else "No subtitle available"
+        )
 
         # Extract summary
         summary_tag = soup.select_one("div.bill_summary p")
-        bill["summary"] = summary_tag.text.strip() if summary_tag else "No summary available"
+        bill["summary"] = (
+            summary_tag.text.strip() if summary_tag else "No summary available"
+        )
 
         # Locate "full text of the bill" link
         full_text_link = soup.find("a", string="full text of the bill")
@@ -78,6 +90,7 @@ def scrape_bill_details(bill):
 
     return bill
 
+
 def scrape_full_text(url):
     """Fetch and parse the full text of a bill from its HTML content."""
     try:
@@ -88,15 +101,17 @@ def scrape_full_text(url):
         soup = BeautifulSoup(response.content, "html.parser")
 
         # Locate the <div> containing the text using its attributes
-        text_div = soup.find("div", {
-            "xmlns:mathml": "http://www.w3.org/1998/Math/MathML",
-            "xmlns:ext": "urn:com:bfc:xslfo:extension"
-        })
+        text_div = soup.find(
+            "div",
+            {
+                "xmlns:mathml": "http://www.w3.org/1998/Math/MathML",
+                "xmlns:ext": "urn:com:bfc:xslfo:extension",
+            },
+        )
 
         if text_div:
             # Extract the text content from the <div> and return it
             return text_div.get_text(separator="\n", strip=True)
-
 
         return "No text content found in the specified <div>."
     except Exception as e:
@@ -108,6 +123,7 @@ def save_to_json(data, filename):
     """Save data to a JSON file."""
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
+
 
 if __name__ == "__main__":
     driver = get_chromedriver()
