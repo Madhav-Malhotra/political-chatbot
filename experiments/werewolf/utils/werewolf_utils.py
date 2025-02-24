@@ -7,11 +7,17 @@ import json
 
 import numpy as np
 from loguru import logger
+import openai
 
 from example_game.prompt import Prompts
 from agentscope.agents import AgentBase
 from agentscope.message import Msg
 
+client = openai.OpenAI()
+
+class ModelResponse:
+    def __init__(self, text):
+        self.text = text
 
 def check_winning(alive_agents: list, wolf_agents: list, host: str) -> bool:
     """check which group wins"""
@@ -76,6 +82,22 @@ def n2s(agents: Sequence[Union[AgentBase, str]]) -> str:
         + _get_name(agents[-1])
     )
 
+def generate_model_response(model: str, messages: list, max_tokens=4096) -> ModelResponse:
+    """Calls openai api and returns response of given model
+
+    Args:
+        model (`str`): Name of the model to use
+        messages (`list`): List of messages containing the prompt
+        max_tokens (`int`, optional): Max # of tokens in response
+    """
+    response = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        max_tokens=4096
+    )
+    
+    # Agentscope json parser requires object to contain "text" field
+    return ModelResponse(response.choices[0].message.content)
 
 def set_parsers(
     agents: Union[AgentBase, list[AgentBase]],
