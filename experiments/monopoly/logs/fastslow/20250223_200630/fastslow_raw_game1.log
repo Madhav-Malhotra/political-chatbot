@@ -1,0 +1,298 @@
+2025-02-23 20:06:38,219 - INFO - Starting game 1 with config: {'max_steps_per_game': 3, 'num_games': 2, 'reflect_before_vectorstore': False, 'primary_model': 'gpt-4o-mini', 'primary_model_params': {'temperature': 0.7, 'max_tokens': 2048}, 'secondary_model': 'gpt-4o', 'secondary_model_params': {'temperature': 0.7, 'max_tokens': 2048}}
+2025-02-23 20:06:38,220 - INFO - ===
+2025-02-23 20:06:38,220 - INFO - Step 0
+2025-02-23 20:06:38,220 - INFO - ===
+2025-02-23 20:06:38,220 - INFO - Custom buy function called for property: the angel islington
+2025-02-23 20:06:38,539 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-23 20:06:38,541 - INFO - ===
+2025-02-23 20:06:38,541 - INFO - Query: Property details:
+
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+2025-02-23 20:06:38,541 - INFO - Retrieved similar documents: [
+  "{\"id\":\"049d7280-3f1f-4100-a125-93518b19e73e\",\"metadata\":{},\"page_content\":\"Initialized\",\"type\":\"Document\"}"
+]
+2025-02-23 20:06:38,541 - INFO - ===
+2025-02-23 20:06:39,691 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-23 20:06:39,693 - INFO - ===
+2025-02-23 20:06:39,693 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Initialized
+
+    Current Property Details:
+    
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1500
+    Owned Roads: 0
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-23 20:06:39,693 - INFO - Fast reasoning: Buying 'the angel islington' for 100 seems like a strategically sound decision. Firstly, the light blue properties are relatively inexpensive, making it a low-risk investment that fits well within the current cash of 1500. Additionally, owning this property would allow me to work towards owning all three light blue properties, which significantly increases rent potential. With a potential rent of 550 with houses or hotels, this could lead to substantial earnings if other players land on it. Since I currently own no properties, acquiring this one would be the first step in building my portfolio and increasing my chances of winning. Overall, the cost versus the potential return justifies the purchase.
+2025-02-23 20:06:39,693 - INFO - Fast decision: True
+2025-02-23 20:06:39,693 - INFO - Fast uncertainty: 0.1
+2025-02-23 20:06:39,693 - INFO - ===
+2025-02-23 20:06:39,693 - INFO - ===
+2025-02-23 20:06:39,693 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"the angel islington_Alice\",\"timestamp\":\"2025-02-23T20:06:39.693759\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: the angel islington\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1500\\n    Owned Roads: 0\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: Buying 'the angel islington' for 100 seems like a strategically sound decision. Firstly, the light blue properties are relatively inexpensive, making it a low-risk investment that fits well within the current cash of 1500. Additionally, owning this property would allow me to work towards owning all three light blue properties, which significantly increases rent potential. With a potential rent of 550 with houses or hotels, this could lead to substantial earnings if other players land on it. Since I currently own no properties, acquiring this one would be the first step in building my portfolio and increasing my chances of winning. Overall, the cost versus the potential return justifies the purchase.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+2025-02-23 20:06:39,693 - INFO - ===
+2025-02-23 20:06:39,804 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-23 20:06:39,807 - INFO - ===
+2025-02-23 20:06:39,807 - INFO - Calling buy_or_bid with args: ({'name': 'pentonville road', 'type': 'road', 'price': 120, 'rent': 8, 'rent_with_color_set': 16, 'rent_with_1_houses_0_hotels': 40, 'rent_with_2_houses_0_hotels': 100, 'rent_with_3_houses_0_hotels': 300, 'rent_with_4_houses_0_hotels': 450, 'rent_with_4_houses_1_hotels': 600, 'mortgage_value': 60, 'unmortgage_value': 66, 'houses_cost': 50, 'hotels_cost': 50, 'color': 'light_blue', 'board_num': 9, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-23 20:06:39,807 - INFO - buy_or_bid returned: buy
+2025-02-23 20:06:39,807 - INFO - ===
+2025-02-23 20:06:39,807 - INFO - ===
+2025-02-23 20:06:39,807 - INFO - Step 1
+2025-02-23 20:06:39,808 - INFO - ===
+2025-02-23 20:06:39,808 - INFO - Custom buy function called for property: euston road
+2025-02-23 20:06:40,083 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-23 20:06:40,084 - INFO - ===
+2025-02-23 20:06:40,084 - INFO - Query: Property details:
+
+    Property Name: euston road
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+2025-02-23 20:06:40,084 - INFO - Retrieved similar documents: [
+  "{\"id\":\"d39b5b3e-4ca7-45cc-9e26-5d81009b0d41\",\"metadata\":{\"case_id\":\"the angel islington_Alice\",\"timestamp\":\"2025-02-23T20:06:39.693759\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: the angel islington\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1500\\n    Owned Roads: 0\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: Buying 'the angel islington' for 100 seems like a strategically sound decision. Firstly, the light blue properties are relatively inexpensive, making it a low-risk investment that fits well within the current cash of 1500. Additionally, owning this property would allow me to work towards owning all three light blue properties, which significantly increases rent potential. With a potential rent of 550 with houses or hotels, this could lead to substantial earnings if other players land on it. Since I currently own no properties, acquiring this one would be the first step in building my portfolio and increasing my chances of winning. Overall, the cost versus the potential return justifies the purchase.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}",
+  "{\"id\":\"049d7280-3f1f-4100-a125-93518b19e73e\",\"metadata\":{},\"page_content\":\"Initialized\",\"type\":\"Document\"}"
+]
+2025-02-23 20:06:40,085 - INFO - ===
+2025-02-23 20:06:40,988 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-23 20:06:40,989 - INFO - ===
+2025-02-23 20:06:40,989 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1500
+    Owned Roads: 0
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: Buying 'the angel islington' for 100 seems like a strategically sound decision. Firstly, the light blue properties are relatively inexpensive, making it a low-risk investment that fits well within the current cash of 1500. Additionally, owning this property would allow me to work towards owning all three light blue properties, which significantly increases rent potential. With a potential rent of 550 with houses or hotels, this could lead to substantial earnings if other players land on it. Since I currently own no properties, acquiring this one would be the first step in building my portfolio and increasing my chances of winning. Overall, the cost versus the potential return justifies the purchase.
+Decision: Decision: Buy
+Uncertainty: 0.1
+Initialized
+
+    Current Property Details:
+    
+    Property Name: euston road
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-23 20:06:40,989 - INFO - Fast reasoning: Buying 'euston road' for 100 is a good decision since it is a low-cost property that contributes to completing the set of light blue properties. Owning two light blue properties increases the rent potential significantly when I acquire the third one. With 1400 cash remaining, I can afford this purchase without jeopardizing my overall position. Additionally, given the current state of the game where I own one property already, adding this will help in building my portfolio strategically. The potential rent of 550 with houses or hotels on these properties is quite attractive and can provide significant income if other players land on them.
+2025-02-23 20:06:40,989 - INFO - Fast decision: True
+2025-02-23 20:06:40,989 - INFO - Fast uncertainty: 0.1
+2025-02-23 20:06:40,989 - INFO - ===
+2025-02-23 20:06:40,989 - INFO - ===
+2025-02-23 20:06:40,990 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"euston road_Alice\",\"timestamp\":\"2025-02-23T20:06:40.989901\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: euston road\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: Buying 'euston road' for 100 is a good decision since it is a low-cost property that contributes to completing the set of light blue properties. Owning two light blue properties increases the rent potential significantly when I acquire the third one. With 1400 cash remaining, I can afford this purchase without jeopardizing my overall position. Additionally, given the current state of the game where I own one property already, adding this will help in building my portfolio strategically. The potential rent of 550 with houses or hotels on these properties is quite attractive and can provide significant income if other players land on them.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+2025-02-23 20:06:40,990 - INFO - ===
+2025-02-23 20:06:41,135 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-23 20:06:41,137 - INFO - ===
+2025-02-23 20:06:41,138 - INFO - Calling buy_or_bid with args: ({'name': 'Electric company', 'type': 'utility', 'price': 150, 'rent': None, 'mortgage_value': 75, 'unmortgage_value': 83, 'board_num': 12, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-23 20:06:41,138 - INFO - buy_or_bid returned: buy
+2025-02-23 20:06:41,138 - INFO - ===
+2025-02-23 20:06:41,138 - INFO - ===
+2025-02-23 20:06:41,138 - INFO - Step 2
+2025-02-23 20:06:41,138 - INFO - ===
+2025-02-23 20:06:41,138 - INFO - Custom buy function called for property: marylebone station
+2025-02-23 20:06:41,368 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-23 20:06:41,369 - INFO - ===
+2025-02-23 20:06:41,369 - INFO - Query: Property details:
+
+    Property Name: marylebone station
+    Type: station
+    Cost: 200
+    Base Rent: 25
+    
+        Number of Stations Owned: 0
+        
+2025-02-23 20:06:41,369 - INFO - Retrieved similar documents: [
+  "{\"id\":\"d7897d93-7118-4cf0-8098-31915d883098\",\"metadata\":{\"case_id\":\"euston road_Alice\",\"timestamp\":\"2025-02-23T20:06:40.989901\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: euston road\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: Buying 'euston road' for 100 is a good decision since it is a low-cost property that contributes to completing the set of light blue properties. Owning two light blue properties increases the rent potential significantly when I acquire the third one. With 1400 cash remaining, I can afford this purchase without jeopardizing my overall position. Additionally, given the current state of the game where I own one property already, adding this will help in building my portfolio strategically. The potential rent of 550 with houses or hotels on these properties is quite attractive and can provide significant income if other players land on them.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}",
+  "{\"id\":\"d39b5b3e-4ca7-45cc-9e26-5d81009b0d41\",\"metadata\":{\"case_id\":\"the angel islington_Alice\",\"timestamp\":\"2025-02-23T20:06:39.693759\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: the angel islington\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1500\\n    Owned Roads: 0\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: Buying 'the angel islington' for 100 seems like a strategically sound decision. Firstly, the light blue properties are relatively inexpensive, making it a low-risk investment that fits well within the current cash of 1500. Additionally, owning this property would allow me to work towards owning all three light blue properties, which significantly increases rent potential. With a potential rent of 550 with houses or hotels, this could lead to substantial earnings if other players land on it. Since I currently own no properties, acquiring this one would be the first step in building my portfolio and increasing my chances of winning. Overall, the cost versus the potential return justifies the purchase.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+]
+2025-02-23 20:06:41,369 - INFO - ===
+2025-02-23 20:06:42,282 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-23 20:06:42,284 - INFO - ===
+2025-02-23 20:06:42,284 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: euston road
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: Buying 'euston road' for 100 is a good decision since it is a low-cost property that contributes to completing the set of light blue properties. Owning two light blue properties increases the rent potential significantly when I acquire the third one. With 1400 cash remaining, I can afford this purchase without jeopardizing my overall position. Additionally, given the current state of the game where I own one property already, adding this will help in building my portfolio strategically. The potential rent of 550 with houses or hotels on these properties is quite attractive and can provide significant income if other players land on them.
+Decision: Decision: Buy
+Uncertainty: 0.1
+Context: Property Details:
+
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1500
+    Owned Roads: 0
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: Buying 'the angel islington' for 100 seems like a strategically sound decision. Firstly, the light blue properties are relatively inexpensive, making it a low-risk investment that fits well within the current cash of 1500. Additionally, owning this property would allow me to work towards owning all three light blue properties, which significantly increases rent potential. With a potential rent of 550 with houses or hotels, this could lead to substantial earnings if other players land on it. Since I currently own no properties, acquiring this one would be the first step in building my portfolio and increasing my chances of winning. Overall, the cost versus the potential return justifies the purchase.
+Decision: Decision: Buy
+Uncertainty: 0.1
+
+    Current Property Details:
+    
+    Property Name: marylebone station
+    Type: station
+    Cost: 200
+    Base Rent: 25
+    
+        Number of Stations Owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1300
+    Owned Roads: 2
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-23 20:06:42,284 - INFO - Fast reasoning: Buying 'marylebone station' for 200 is a strategically advantageous decision. Stations tend to generate consistent income, with a base rent of 25, which can significantly increase as more stations are owned (up to 50 if all four are owned). Given that I currently have 1300 cash, purchasing this station will not jeopardize my overall cash position, and it will diversify my portfolio by adding a station to the two roads I currently own. Acquiring this property could lead to increased cash flow, making it easier to build on other properties in the future. Overall, the potential for steady rent income makes buying this station a sound investment.
+2025-02-23 20:06:42,284 - INFO - Fast decision: True
+2025-02-23 20:06:42,284 - INFO - Fast uncertainty: 0.05
+2025-02-23 20:06:42,284 - INFO - ===
+2025-02-23 20:06:42,284 - INFO - ===
+2025-02-23 20:06:42,284 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"marylebone station_Alice\",\"timestamp\":\"2025-02-23T20:06:42.284631\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: marylebone station\\n    Type: station\\n    Cost: 200\\n    Base Rent: 25\\n    \\n        Number of Stations Owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1300\\n    Owned Roads: 2\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: Buying 'marylebone station' for 200 is a strategically advantageous decision. Stations tend to generate consistent income, with a base rent of 25, which can significantly increase as more stations are owned (up to 50 if all four are owned). Given that I currently have 1300 cash, purchasing this station will not jeopardize my overall cash position, and it will diversify my portfolio by adding a station to the two roads I currently own. Acquiring this property could lead to increased cash flow, making it easier to build on other properties in the future. Overall, the potential for steady rent income makes buying this station a sound investment.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}"
+2025-02-23 20:06:42,284 - INFO - ===
+2025-02-23 20:06:42,404 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-23 20:06:42,406 - INFO - ===
+2025-02-23 20:06:42,406 - INFO - Calling buy_or_bid with args: ({'name': 'marlborough street', 'type': 'road', 'price': 180, 'rent': 14, 'rent_with_color_set': 28, 'rent_with_1_houses_0_hotels': 70, 'rent_with_2_houses_0_hotels': 200, 'rent_with_3_houses_0_hotels': 550, 'rent_with_4_houses_0_hotels': 750, 'rent_with_4_houses_1_hotels': 950, 'mortgage_value': 90, 'unmortgage_value': 99, 'houses_cost': 100, 'hotels_cost': 100, 'color': 'orange', 'board_num': 18, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-23 20:06:42,406 - INFO - buy_or_bid returned: buy
+2025-02-23 20:06:42,406 - INFO - ===
+2025-02-23 20:07:05,613 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
