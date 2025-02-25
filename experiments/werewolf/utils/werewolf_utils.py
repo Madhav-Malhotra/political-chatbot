@@ -93,7 +93,7 @@ def generate_model_response(model: str, messages: list, max_tokens=4096) -> Mode
     response = client.chat.completions.create(
         model=model,
         messages=messages,
-        max_tokens=4096
+        max_tokens=2048
     )
     
     # Agentscope json parser requires object to contain "text" field
