@@ -523,7 +523,7 @@ def get_properties():
             "is_mortgaged": False,
         },
         "fenchurch st. station": {
-            "name": "Fenchurch st. station",
+            "name": "fenchurch st. station",
             "type": "station",
             "price": 200,
             "rent": 25,
@@ -545,7 +545,7 @@ def get_properties():
             "is_mortgaged": False,
         },
         "electric company": {
-            "name": "Electric company",
+            "name": "electric company",
             "type": "utility",
             "price": 150,
             "rent": None,  # utility's rent depends of dice value
