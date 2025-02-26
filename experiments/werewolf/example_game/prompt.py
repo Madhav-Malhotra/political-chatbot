@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """Used to record prompts, will be replaced by configuration"""
 from agentscope.parsers.json_object_parser import MarkdownJsonDictParser
-#from parsers.custom_json_parser import MarkdownJsonDictParser
-
 
 class Prompts:
     """Prompts for werewolf game"""

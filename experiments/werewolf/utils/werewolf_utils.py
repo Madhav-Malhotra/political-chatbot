@@ -13,6 +13,12 @@ from example_game.prompt import Prompts
 from agentscope.agents import AgentBase
 from agentscope.message import Msg
 
+import os
+from dotenv import load_dotenv
+
+# Load API keys from .env file
+load_dotenv()
+
 client = openai.OpenAI()
 
 class ModelResponse:
