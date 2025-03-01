@@ -1,0 +1,100 @@
+2025-02-28 19:37:46,601 - INFO - Starting game 16 with config: {'max_steps_per_game': 4, 'num_games': 20, 'reflect_before_vectorstore': True, 'primary_model': 'gpt-4o-mini', 'primary_model_params': {'temperature': 1.0, 'max_tokens': 2048}, 'secondary_model': 'gpt-4o', 'secondary_model_params': {'temperature': 1.0, 'max_tokens': 2048}}
+2025-02-28 19:37:46,601 - INFO - ===
+2025-02-28 19:37:46,601 - INFO - Step 0
+2025-02-28 19:37:46,601 - INFO - ===
+2025-02-28 19:37:46,620 - INFO - ===
+2025-02-28 19:37:46,620 - INFO - Calling buy_or_bid with args: ({'name': 'whitechapel road', 'type': 'road', 'price': 60, 'rent': 4, 'rent_with_color_set': 8, 'rent_with_1_houses_0_hotels': 20, 'rent_with_2_houses_0_hotels': 60, 'rent_with_3_houses_0_hotels': 180, 'rent_with_4_houses_0_hotels': 320, 'rent_with_4_houses_1_hotels': 450, 'mortgage_value': 30, 'unmortgage_value': 33, 'houses_cost': 50, 'hotels_cost': 50, 'color': 'brown', 'board_num': 3, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 19:37:46,620 - INFO - buy_or_bid returned: buy
+2025-02-28 19:37:46,620 - INFO - ===
+2025-02-28 19:37:46,620 - INFO - ===
+2025-02-28 19:37:46,620 - INFO - Step 1
+2025-02-28 19:37:46,625 - INFO - ===
+2025-02-28 19:37:46,625 - INFO - ===
+2025-02-28 19:37:46,625 - INFO - Calling buy_or_bid with args: ({'name': 'the angel islington', 'type': 'road', 'price': 100, 'rent': 6, 'rent_with_color_set': 12, 'rent_with_1_houses_0_hotels': 30, 'rent_with_2_houses_0_hotels': 90, 'rent_with_3_houses_0_hotels': 270, 'rent_with_4_houses_0_hotels': 400, 'rent_with_4_houses_1_hotels': 550, 'mortgage_value': 50, 'unmortgage_value': 55, 'houses_cost': 50, 'hotels_cost': 50, 'color': 'light_blue', 'board_num': 6, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 19:37:46,625 - INFO - buy_or_bid returned: buy
+2025-02-28 19:37:46,625 - INFO - ===
+2025-02-28 19:37:46,628 - INFO - ===
+2025-02-28 19:37:46,628 - INFO - Step 2
+2025-02-28 19:37:46,628 - INFO - ===
+2025-02-28 19:37:46,628 - INFO - ===
+2025-02-28 19:37:46,628 - INFO - Calling buy_or_bid with args: ({'name': 'electric company', 'type': 'utility', 'price': 150, 'rent': None, 'mortgage_value': 75, 'unmortgage_value': 83, 'board_num': 12, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 19:37:46,628 - INFO - buy_or_bid returned: buy
+2025-02-28 19:37:46,628 - INFO - ===
+2025-02-28 19:37:46,628 - INFO - ===
+2025-02-28 19:37:46,628 - INFO - Step 3
+2025-02-28 19:37:46,628 - INFO - ===
+2025-02-28 19:37:46,628 - INFO - Custom buy function called for property: bow street
+2025-02-28 19:37:46,866 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 19:37:46,866 - INFO - ===
+2025-02-28 19:37:46,866 - INFO - Query: Property details:
+
+    Property Name: bow street
+    Type: road
+    Cost: 180
+    Base Rent: 14
+    
+        Color: orange
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 950
+        Number of orange properties owned: 0
+        
+2025-02-28 19:37:46,866 - INFO - Retrieved similar documents: [
+  "{\"id\":\"da1b08a0-c36f-4475-b67c-04ba529893c1\",\"metadata\":{},\"page_content\":\"Initialized\",\"type\":\"Document\"}"
+]
+2025-02-28 19:37:46,866 - INFO - ===
+2025-02-28 19:37:49,580 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 19:37:49,582 - INFO - ===
+2025-02-28 19:37:49,582 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Initialized
+
+    Current Property Details:
+    
+    Property Name: bow street
+    Type: road
+    Cost: 180
+    Base Rent: 14
+    
+        Color: orange
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 950
+        Number of orange properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1300
+    Owned Roads: 0
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 19:37:49,582 - INFO - Fast reasoning: Buying Bow Street for 180 provides an opportunity to own a valuable orange property, which can lead to increased rent income, especially with the potential rent boost from owning all three orange properties. Your current cash status allows for the purchase without immediate risk of bankruptcy. With no properties owned yet, acquiring Bow Street can be a strategic step towards collecting a full set, thereby maximizing rent income. Additionally, the orange properties are relatively high in rent value, especially with buildings.
+2025-02-28 19:37:49,582 - INFO - Fast decision: True
+2025-02-28 19:37:49,582 - INFO - Fast uncertainty: 0.1
+2025-02-28 19:37:49,582 - INFO - ===
+2025-02-28 19:37:49,582 - INFO - ===
+2025-02-28 19:37:49,582 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"bow street_Alice\",\"timestamp\":\"2025-02-28T19:37:49.582953\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: bow street\\n    Type: road\\n    Cost: 180\\n    Base Rent: 14\\n    \\n        Color: orange\\n        Cost of Building a House: 100\\n        Cost of Building a Hotel: 100\\n        Rent with 4 Houses and 1 Hotel: 950\\n        Number of orange properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1300\\n    Owned Roads: 0\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: Buying Bow Street for 180 provides an opportunity to own a valuable orange property, which can lead to increased rent income, especially with the potential rent boost from owning all three orange properties. Your current cash status allows for the purchase without immediate risk of bankruptcy. With no properties owned yet, acquiring Bow Street can be a strategic step towards collecting a full set, thereby maximizing rent income. Additionally, the orange properties are relatively high in rent value, especially with buildings.\\nDecision: Decision: BuyUncertainty: 0.1\",\"type\":\"Document\"}"
+2025-02-28 19:37:49,582 - INFO - ===
+2025-02-28 19:37:49,582 - INFO - ===
+2025-02-28 19:37:49,582 - INFO - Calling buy_or_bid with args: ({'name': 'strand', 'type': 'road', 'price': 220, 'rent': 18, 'rent_with_color_set': 36, 'rent_with_1_houses_0_hotels': 90, 'rent_with_2_houses_0_hotels': 250, 'rent_with_3_houses_0_hotels': 700, 'rent_with_4_houses_0_hotels': 875, 'rent_with_4_houses_1_hotels': 1050, 'mortgage_value': 110, 'unmortgage_value': 121, 'houses_cost': 150, 'hotels_cost': 150, 'color': 'red', 'board_num': 21, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 19:37:49,582 - INFO - buy_or_bid returned: buy
+2025-02-28 19:37:49,582 - INFO - ===
+2025-02-28 19:37:50,997 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
