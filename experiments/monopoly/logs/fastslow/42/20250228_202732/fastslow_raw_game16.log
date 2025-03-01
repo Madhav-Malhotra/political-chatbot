@@ -1,0 +1,1575 @@
+2025-02-28 21:01:43,399 - INFO - Starting game 16 with config: {'max_steps_per_game': 200, 'num_games': 20, 'reflect_before_vectorstore': False, 'primary_model': 'gpt-4o-mini', 'primary_model_params': {'temperature': 1.0, 'max_tokens': 2048}, 'secondary_model': 'gpt-4o', 'secondary_model_params': {'temperature': 1.0, 'max_tokens': 2048}}
+2025-02-28 21:01:43,400 - INFO - ===
+2025-02-28 21:01:43,400 - INFO - Step 0
+2025-02-28 21:01:43,400 - INFO - ===
+2025-02-28 21:01:43,400 - INFO - Custom buy function called for property: the angel islington
+2025-02-28 21:01:43,552 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:43,566 - INFO - ===
+2025-02-28 21:01:43,566 - INFO - Query: Property details:
+
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+2025-02-28 21:01:43,566 - INFO - Retrieved similar documents: [
+  "{\"id\":\"55b8b2ac-e811-40fa-977f-5d541765bdf8\",\"metadata\":{},\"page_content\":\"Initialized\",\"type\":\"Document\"}"
+]
+2025-02-28 21:01:43,566 - INFO - ===
+2025-02-28 21:01:46,173 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:01:46,174 - INFO - ===
+2025-02-28 21:01:46,174 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Initialized
+
+    Current Property Details:
+    
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1500
+    Owned Roads: 0
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:01:46,174 - INFO - Fast reasoning: The property 'the angel islington' costs $100, which is a reasonable investment given my available cash of $1500. Additionally, owning it would allow me to start accumulating the light blue properties that could increase my rent potential. Right now, I don't own any properties, so acquiring this one could be a strategic move to begin my positioning in the game. However, it only has a base rent of $6 without houses, which means its initial income isn't high, but it does have a substantial rent potential with improvements. Given that this is a low-cost way to diversify my holdings, I will choose to buy the property. 
+
+Owning the single light blue property creates an opportunity to leverage future opportunities for renting, trading, or developing into houses later on, and it's feasible within my current cash resources. Thus, purchasing this property maximizes my chances of competing effectively in the game.
+2025-02-28 21:01:46,174 - INFO - Fast decision: True
+2025-02-28 21:01:46,174 - INFO - Fast uncertainty: 0.1
+2025-02-28 21:01:46,174 - INFO - ===
+2025-02-28 21:01:46,176 - INFO - ===
+2025-02-28 21:01:46,176 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"the angel islington_Alice\",\"timestamp\":\"2025-02-28T21:01:46.176001\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: the angel islington\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1500\\n    Owned Roads: 0\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'the angel islington' costs $100, which is a reasonable investment given my available cash of $1500. Additionally, owning it would allow me to start accumulating the light blue properties that could increase my rent potential. Right now, I don't own any properties, so acquiring this one could be a strategic move to begin my positioning in the game. However, it only has a base rent of $6 without houses, which means its initial income isn't high, but it does have a substantial rent potential with improvements. Given that this is a low-cost way to diversify my holdings, I will choose to buy the property. \\n\\nOwning the single light blue property creates an opportunity to leverage future opportunities for renting, trading, or developing into houses later on, and it's feasible within my current cash resources. Thus, purchasing this property maximizes my chances of competing effectively in the game.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+2025-02-28 21:01:46,176 - INFO - ===
+2025-02-28 21:01:46,366 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:46,374 - INFO - ===
+2025-02-28 21:01:46,375 - INFO - Calling buy_or_bid with args: ({'name': 'whitechapel road', 'type': 'road', 'price': 60, 'rent': 4, 'rent_with_color_set': 8, 'rent_with_1_houses_0_hotels': 20, 'rent_with_2_houses_0_hotels': 60, 'rent_with_3_houses_0_hotels': 180, 'rent_with_4_houses_0_hotels': 320, 'rent_with_4_houses_1_hotels': 450, 'mortgage_value': 30, 'unmortgage_value': 33, 'houses_cost': 50, 'hotels_cost': 50, 'color': 'brown', 'board_num': 3, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:01:46,375 - INFO - buy_or_bid returned: buy
+2025-02-28 21:01:46,375 - INFO - ===
+2025-02-28 21:01:46,375 - INFO - ===
+2025-02-28 21:01:46,375 - INFO - Step 1
+2025-02-28 21:01:46,375 - INFO - ===
+2025-02-28 21:01:46,376 - INFO - Custom buy function called for property: pentonville road
+2025-02-28 21:01:46,569 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:46,571 - INFO - ===
+2025-02-28 21:01:46,571 - INFO - Query: Property details:
+
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+2025-02-28 21:01:46,572 - INFO - Retrieved similar documents: [
+  "{\"id\":\"c52af49f-d23e-418b-a533-b4511381c356\",\"metadata\":{\"case_id\":\"the angel islington_Alice\",\"timestamp\":\"2025-02-28T21:01:46.176001\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: the angel islington\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1500\\n    Owned Roads: 0\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'the angel islington' costs $100, which is a reasonable investment given my available cash of $1500. Additionally, owning it would allow me to start accumulating the light blue properties that could increase my rent potential. Right now, I don't own any properties, so acquiring this one could be a strategic move to begin my positioning in the game. However, it only has a base rent of $6 without houses, which means its initial income isn't high, but it does have a substantial rent potential with improvements. Given that this is a low-cost way to diversify my holdings, I will choose to buy the property. \\n\\nOwning the single light blue property creates an opportunity to leverage future opportunities for renting, trading, or developing into houses later on, and it's feasible within my current cash resources. Thus, purchasing this property maximizes my chances of competing effectively in the game.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}",
+  "{\"id\":\"55b8b2ac-e811-40fa-977f-5d541765bdf8\",\"metadata\":{},\"page_content\":\"Initialized\",\"type\":\"Document\"}"
+]
+2025-02-28 21:01:46,572 - INFO - ===
+2025-02-28 21:01:49,852 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:01:49,855 - INFO - ===
+2025-02-28 21:01:49,855 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1500
+    Owned Roads: 0
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'the angel islington' costs $100, which is a reasonable investment given my available cash of $1500. Additionally, owning it would allow me to start accumulating the light blue properties that could increase my rent potential. Right now, I don't own any properties, so acquiring this one could be a strategic move to begin my positioning in the game. However, it only has a base rent of $6 without houses, which means its initial income isn't high, but it does have a substantial rent potential with improvements. Given that this is a low-cost way to diversify my holdings, I will choose to buy the property. 
+
+Owning the single light blue property creates an opportunity to leverage future opportunities for renting, trading, or developing into houses later on, and it's feasible within my current cash resources. Thus, purchasing this property maximizes my chances of competing effectively in the game.
+Decision: Decision: Buy
+Uncertainty: 0.1
+Initialized
+
+    Current Property Details:
+    
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:01:49,855 - INFO - Fast reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.
+2025-02-28 21:01:49,855 - INFO - Fast decision: True
+2025-02-28 21:01:49,855 - INFO - Fast uncertainty: 0.05
+2025-02-28 21:01:49,855 - INFO - ===
+2025-02-28 21:01:49,858 - INFO - ===
+2025-02-28 21:01:49,858 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"pentonville road_Alice\",\"timestamp\":\"2025-02-28T21:01:49.858420\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pentonville road\\n    Type: road\\n    Cost: 120\\n    Base Rent: 8\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 600\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}"
+2025-02-28 21:01:49,858 - INFO - ===
+2025-02-28 21:01:50,103 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:50,106 - INFO - ===
+2025-02-28 21:01:50,106 - INFO - Calling buy_or_bid with args: ({'name': 'euston road', 'type': 'road', 'price': 100, 'rent': 6, 'rent_with_color_set': 12, 'rent_with_1_houses_0_hotels': 30, 'rent_with_2_houses_0_hotels': 90, 'rent_with_3_houses_0_hotels': 270, 'rent_with_4_houses_0_hotels': 400, 'rent_with_4_houses_1_hotels': 550, 'mortgage_value': 50, 'unmortgage_value': 55, 'houses_cost': 50, 'hotels_cost': 50, 'color': 'light_blue', 'board_num': 8, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:01:50,106 - INFO - buy_or_bid returned: buy
+2025-02-28 21:01:50,106 - INFO - ===
+2025-02-28 21:01:50,107 - INFO - ===
+2025-02-28 21:01:50,107 - INFO - Step 2
+2025-02-28 21:01:50,107 - INFO - ===
+2025-02-28 21:01:50,107 - INFO - ===
+2025-02-28 21:01:50,107 - INFO - Step 3
+2025-02-28 21:01:50,107 - INFO - ===
+2025-02-28 21:01:50,108 - INFO - Custom buy function called for property: coventry street
+2025-02-28 21:01:50,321 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:50,322 - INFO - ===
+2025-02-28 21:01:50,322 - INFO - Query: Property details:
+
+    Property Name: coventry street
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+2025-02-28 21:01:50,322 - INFO - Retrieved similar documents: [
+  "{\"id\":\"cd4e831d-7514-4ecb-8a70-d8dcb18a7d95\",\"metadata\":{\"case_id\":\"pentonville road_Alice\",\"timestamp\":\"2025-02-28T21:01:49.858420\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pentonville road\\n    Type: road\\n    Cost: 120\\n    Base Rent: 8\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 600\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}",
+  "{\"id\":\"c52af49f-d23e-418b-a533-b4511381c356\",\"metadata\":{\"case_id\":\"the angel islington_Alice\",\"timestamp\":\"2025-02-28T21:01:46.176001\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: the angel islington\\n    Type: road\\n    Cost: 100\\n    Base Rent: 6\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 550\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1500\\n    Owned Roads: 0\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'the angel islington' costs $100, which is a reasonable investment given my available cash of $1500. Additionally, owning it would allow me to start accumulating the light blue properties that could increase my rent potential. Right now, I don't own any properties, so acquiring this one could be a strategic move to begin my positioning in the game. However, it only has a base rent of $6 without houses, which means its initial income isn't high, but it does have a substantial rent potential with improvements. Given that this is a low-cost way to diversify my holdings, I will choose to buy the property. \\n\\nOwning the single light blue property creates an opportunity to leverage future opportunities for renting, trading, or developing into houses later on, and it's feasible within my current cash resources. Thus, purchasing this property maximizes my chances of competing effectively in the game.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+]
+2025-02-28 21:01:50,322 - INFO - ===
+2025-02-28 21:01:52,398 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:01:52,402 - INFO - ===
+2025-02-28 21:01:52,403 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.
+Decision: Decision: Buy
+Uncertainty: 0.05
+Context: Property Details:
+
+    Property Name: the angel islington
+    Type: road
+    Cost: 100
+    Base Rent: 6
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 550
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1500
+    Owned Roads: 0
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'the angel islington' costs $100, which is a reasonable investment given my available cash of $1500. Additionally, owning it would allow me to start accumulating the light blue properties that could increase my rent potential. Right now, I don't own any properties, so acquiring this one could be a strategic move to begin my positioning in the game. However, it only has a base rent of $6 without houses, which means its initial income isn't high, but it does have a substantial rent potential with improvements. Given that this is a low-cost way to diversify my holdings, I will choose to buy the property. 
+
+Owning the single light blue property creates an opportunity to leverage future opportunities for renting, trading, or developing into houses later on, and it's feasible within my current cash resources. Thus, purchasing this property maximizes my chances of competing effectively in the game.
+Decision: Decision: Buy
+Uncertainty: 0.1
+
+    Current Property Details:
+    
+    Property Name: coventry street
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1330
+    Owned Roads: 2
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:01:52,403 - INFO - Fast reasoning: The property 'coventry street' costs $260, which is within my cash limit of $1330. Acquiring it would add a valuable yellow property to my portfolio, with a base rent of $22, significantly higher than my current properties. With my current strategy of collecting properties to build houses for higher rent, this property aligns well since the rent potential increases dramatically with homes. Additionally, investing in yellow properties can lead to strong returns, especially as they enhance my overall position in the game. Therefore, buying Coventry Street is a strategic move that supports my overall goal of maximizing profits through property accumulation and development.
+2025-02-28 21:01:52,403 - INFO - Fast decision: True
+2025-02-28 21:01:52,403 - INFO - Fast uncertainty: 0.05
+2025-02-28 21:01:52,403 - INFO - ===
+2025-02-28 21:01:52,404 - INFO - ===
+2025-02-28 21:01:52,405 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"coventry street_Alice\",\"timestamp\":\"2025-02-28T21:01:52.404930\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: coventry street\\n    Type: road\\n    Cost: 260\\n    Base Rent: 22\\n    \\n        Color: yellow\\n        Cost of Building a House: 150\\n        Cost of Building a Hotel: 150\\n        Rent with 4 Houses and 1 Hotel: 1150\\n        Number of yellow properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1330\\n    Owned Roads: 2\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'coventry street' costs $260, which is within my cash limit of $1330. Acquiring it would add a valuable yellow property to my portfolio, with a base rent of $22, significantly higher than my current properties. With my current strategy of collecting properties to build houses for higher rent, this property aligns well since the rent potential increases dramatically with homes. Additionally, investing in yellow properties can lead to strong returns, especially as they enhance my overall position in the game. Therefore, buying Coventry Street is a strategic move that supports my overall goal of maximizing profits through property accumulation and development.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}"
+2025-02-28 21:01:52,405 - INFO - ===
+2025-02-28 21:01:52,635 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:52,642 - INFO - ===
+2025-02-28 21:01:52,642 - INFO - Step 4
+2025-02-28 21:01:52,643 - INFO - ===
+2025-02-28 21:01:52,644 - INFO - Custom buy function called for property: oxford street
+2025-02-28 21:01:52,773 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:52,780 - INFO - ===
+2025-02-28 21:01:52,780 - INFO - Query: Property details:
+
+    Property Name: oxford street
+    Type: road
+    Cost: 300
+    Base Rent: 26
+    
+        Color: green
+        Cost of Building a House: 200
+        Cost of Building a Hotel: 200
+        Rent with 4 Houses and 1 Hotel: 1275
+        Number of green properties owned: 0
+        
+2025-02-28 21:01:52,780 - INFO - Retrieved similar documents: [
+  "{\"id\":\"be7f8f48-3a67-4950-b48f-e3304b763bee\",\"metadata\":{\"case_id\":\"coventry street_Alice\",\"timestamp\":\"2025-02-28T21:01:52.404930\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: coventry street\\n    Type: road\\n    Cost: 260\\n    Base Rent: 22\\n    \\n        Color: yellow\\n        Cost of Building a House: 150\\n        Cost of Building a Hotel: 150\\n        Rent with 4 Houses and 1 Hotel: 1150\\n        Number of yellow properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1330\\n    Owned Roads: 2\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'coventry street' costs $260, which is within my cash limit of $1330. Acquiring it would add a valuable yellow property to my portfolio, with a base rent of $22, significantly higher than my current properties. With my current strategy of collecting properties to build houses for higher rent, this property aligns well since the rent potential increases dramatically with homes. Additionally, investing in yellow properties can lead to strong returns, especially as they enhance my overall position in the game. Therefore, buying Coventry Street is a strategic move that supports my overall goal of maximizing profits through property accumulation and development.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}",
+  "{\"id\":\"cd4e831d-7514-4ecb-8a70-d8dcb18a7d95\",\"metadata\":{\"case_id\":\"pentonville road_Alice\",\"timestamp\":\"2025-02-28T21:01:49.858420\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pentonville road\\n    Type: road\\n    Cost: 120\\n    Base Rent: 8\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 600\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}"
+]
+2025-02-28 21:01:52,781 - INFO - ===
+2025-02-28 21:01:57,235 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:01:57,240 - INFO - ===
+2025-02-28 21:01:57,240 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: coventry street
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+Player Stats:
+
+    Cash: 1330
+    Owned Roads: 2
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'coventry street' costs $260, which is within my cash limit of $1330. Acquiring it would add a valuable yellow property to my portfolio, with a base rent of $22, significantly higher than my current properties. With my current strategy of collecting properties to build houses for higher rent, this property aligns well since the rent potential increases dramatically with homes. Additionally, investing in yellow properties can lead to strong returns, especially as they enhance my overall position in the game. Therefore, buying Coventry Street is a strategic move that supports my overall goal of maximizing profits through property accumulation and development.
+Decision: Decision: Buy
+Uncertainty: 0.05
+Context: Property Details:
+
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.
+Decision: Decision: Buy
+Uncertainty: 0.05
+
+    Current Property Details:
+    
+    Property Name: oxford street
+    Type: road
+    Cost: 300
+    Base Rent: 26
+    
+        Color: green
+        Cost of Building a House: 200
+        Cost of Building a Hotel: 200
+        Rent with 4 Houses and 1 Hotel: 1275
+        Number of green properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 1070
+    Owned Roads: 3
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:01:57,241 - INFO - Fast reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.
+2025-02-28 21:01:57,241 - INFO - Fast decision: True
+2025-02-28 21:01:57,241 - INFO - Fast uncertainty: 0.1
+2025-02-28 21:01:57,241 - INFO - ===
+2025-02-28 21:01:57,248 - INFO - ===
+2025-02-28 21:01:57,248 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"oxford street_Alice\",\"timestamp\":\"2025-02-28T21:01:57.248271\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: oxford street\\n    Type: road\\n    Cost: 300\\n    Base Rent: 26\\n    \\n        Color: green\\n        Cost of Building a House: 200\\n        Cost of Building a Hotel: 200\\n        Rent with 4 Houses and 1 Hotel: 1275\\n        Number of green properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1070\\n    Owned Roads: 3\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+2025-02-28 21:01:57,248 - INFO - ===
+2025-02-28 21:01:57,442 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:57,443 - INFO - ===
+2025-02-28 21:01:57,443 - INFO - Calling buy_or_bid with args: ({'name': 'fleet street', 'type': 'road', 'price': 220, 'rent': 18, 'rent_with_color_set': 36, 'rent_with_1_houses_0_hotels': 90, 'rent_with_2_houses_0_hotels': 250, 'rent_with_3_houses_0_hotels': 700, 'rent_with_4_houses_0_hotels': 875, 'rent_with_4_houses_1_hotels': 1050, 'mortgage_value': 110, 'unmortgage_value': 121, 'houses_cost': 150, 'hotels_cost': 150, 'color': 'red', 'board_num': 23, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:01:57,443 - INFO - buy_or_bid returned: buy
+2025-02-28 21:01:57,443 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - Step 5
+2025-02-28 21:01:57,444 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - Calling buy_or_bid with args: ({'name': 'bond street', 'type': 'road', 'price': 320, 'rent': 28, 'rent_with_color_set': 56, 'rent_with_1_houses_0_hotels': 150, 'rent_with_2_houses_0_hotels': 450, 'rent_with_3_houses_0_hotels': 1000, 'rent_with_4_houses_0_hotels': 1200, 'rent_with_4_houses_1_hotels': 1400, 'mortgage_value': 160, 'unmortgage_value': 176, 'houses_cost': 200, 'hotels_cost': 200, 'color': 'green', 'board_num': 34, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:01:57,444 - INFO - buy_or_bid returned: buy
+2025-02-28 21:01:57,444 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - Step 6
+2025-02-28 21:01:57,444 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - ===
+2025-02-28 21:01:57,444 - INFO - Calling buy_or_bid with args: ({'name': 'old kent road', 'type': 'road', 'price': 60, 'rent': 2, 'rent_with_color_set': 4, 'rent_with_1_houses_0_hotels': 10, 'rent_with_2_houses_0_hotels': 30, 'rent_with_3_houses_0_hotels': 90, 'rent_with_4_houses_0_hotels': 160, 'rent_with_4_houses_1_hotels': 250, 'mortgage_value': 30, 'unmortgage_value': 33, 'houses_cost': 50, 'hotels_cost': 50, 'color': 'brown', 'board_num': 1, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:01:57,445 - INFO - buy_or_bid returned: buy
+2025-02-28 21:01:57,445 - INFO - ===
+2025-02-28 21:01:57,445 - INFO - ===
+2025-02-28 21:01:57,445 - INFO - Step 7
+2025-02-28 21:01:57,445 - INFO - ===
+2025-02-28 21:01:57,445 - INFO - Custom buy function called for property: pall mall
+2025-02-28 21:01:57,669 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:57,671 - INFO - ===
+2025-02-28 21:01:57,671 - INFO - Query: Property details:
+
+    Property Name: pall mall
+    Type: road
+    Cost: 140
+    Base Rent: 10
+    
+        Color: purple
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 750
+        Number of purple properties owned: 0
+        
+2025-02-28 21:01:57,671 - INFO - Retrieved similar documents: [
+  "{\"id\":\"cd4e831d-7514-4ecb-8a70-d8dcb18a7d95\",\"metadata\":{\"case_id\":\"pentonville road_Alice\",\"timestamp\":\"2025-02-28T21:01:49.858420\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pentonville road\\n    Type: road\\n    Cost: 120\\n    Base Rent: 8\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 600\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}",
+  "{\"id\":\"f97877aa-fe3e-4d4c-81ed-da3a36823f4e\",\"metadata\":{\"case_id\":\"oxford street_Alice\",\"timestamp\":\"2025-02-28T21:01:57.248271\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: oxford street\\n    Type: road\\n    Cost: 300\\n    Base Rent: 26\\n    \\n        Color: green\\n        Cost of Building a House: 200\\n        Cost of Building a Hotel: 200\\n        Rent with 4 Houses and 1 Hotel: 1275\\n        Number of green properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1070\\n    Owned Roads: 3\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+]
+2025-02-28 21:01:57,672 - INFO - ===
+2025-02-28 21:01:59,650 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:01:59,654 - INFO - ===
+2025-02-28 21:01:59,655 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.
+Decision: Decision: Buy
+Uncertainty: 0.05
+Context: Property Details:
+
+    Property Name: oxford street
+    Type: road
+    Cost: 300
+    Base Rent: 26
+    
+        Color: green
+        Cost of Building a House: 200
+        Cost of Building a Hotel: 200
+        Rent with 4 Houses and 1 Hotel: 1275
+        Number of green properties owned: 0
+        
+Player Stats:
+
+    Cash: 1070
+    Owned Roads: 3
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.
+Decision: Decision: Buy
+Uncertainty: 0.1
+
+    Current Property Details:
+    
+    Property Name: pall mall
+    Type: road
+    Cost: 140
+    Base Rent: 10
+    
+        Color: purple
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 750
+        Number of purple properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 870
+    Owned Roads: 4
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:01:59,655 - INFO - Fast reasoning: The property 'pall mall' costs $140, which is within my cash limit of $870. The base rent of $10 is attractive compared to similar properties I am considering. Although it does not provide a rent bonus alone as it's only a single property, it adds variety to my portfolio. Additionally, the cost of building houses is $100, allowing me to develop it relatively quickly if cash flow allows. The potential for rent with four houses or one hotel is substantial at $750, making it a lucrative investment. Given these factors, purchasing 'pall mall' strategically strengthens my position while still maintaining a healthy cash level for future moves.
+2025-02-28 21:01:59,655 - INFO - Fast decision: True
+2025-02-28 21:01:59,655 - INFO - Fast uncertainty: 0.03
+2025-02-28 21:01:59,655 - INFO - ===
+2025-02-28 21:01:59,657 - INFO - ===
+2025-02-28 21:01:59,657 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"pall mall_Alice\",\"timestamp\":\"2025-02-28T21:01:59.657587\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pall mall\\n    Type: road\\n    Cost: 140\\n    Base Rent: 10\\n    \\n        Color: purple\\n        Cost of Building a House: 100\\n        Cost of Building a Hotel: 100\\n        Rent with 4 Houses and 1 Hotel: 750\\n        Number of purple properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 870\\n    Owned Roads: 4\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pall mall' costs $140, which is within my cash limit of $870. The base rent of $10 is attractive compared to similar properties I am considering. Although it does not provide a rent bonus alone as it's only a single property, it adds variety to my portfolio. Additionally, the cost of building houses is $100, allowing me to develop it relatively quickly if cash flow allows. The potential for rent with four houses or one hotel is substantial at $750, making it a lucrative investment. Given these factors, purchasing 'pall mall' strategically strengthens my position while still maintaining a healthy cash level for future moves.\\nDecision: Decision: Buy\\nUncertainty: 0.03\",\"type\":\"Document\"}"
+2025-02-28 21:01:59,657 - INFO - ===
+2025-02-28 21:01:59,928 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:01:59,940 - INFO - ===
+2025-02-28 21:01:59,940 - INFO - Step 8
+2025-02-28 21:01:59,940 - INFO - ===
+2025-02-28 21:01:59,940 - INFO - Custom buy function called for property: vine street
+2025-02-28 21:02:00,097 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:00,105 - INFO - ===
+2025-02-28 21:02:00,105 - INFO - Query: Property details:
+
+    Property Name: vine street
+    Type: road
+    Cost: 200
+    Base Rent: 16
+    
+        Color: orange
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 1000
+        Number of orange properties owned: 0
+        
+2025-02-28 21:02:00,105 - INFO - Retrieved similar documents: [
+  "{\"id\":\"f97877aa-fe3e-4d4c-81ed-da3a36823f4e\",\"metadata\":{\"case_id\":\"oxford street_Alice\",\"timestamp\":\"2025-02-28T21:01:57.248271\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: oxford street\\n    Type: road\\n    Cost: 300\\n    Base Rent: 26\\n    \\n        Color: green\\n        Cost of Building a House: 200\\n        Cost of Building a Hotel: 200\\n        Rent with 4 Houses and 1 Hotel: 1275\\n        Number of green properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1070\\n    Owned Roads: 3\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}",
+  "{\"id\":\"cd4e831d-7514-4ecb-8a70-d8dcb18a7d95\",\"metadata\":{\"case_id\":\"pentonville road_Alice\",\"timestamp\":\"2025-02-28T21:01:49.858420\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pentonville road\\n    Type: road\\n    Cost: 120\\n    Base Rent: 8\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 600\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}"
+]
+2025-02-28 21:02:00,105 - INFO - ===
+2025-02-28 21:02:02,416 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:02:02,425 - INFO - ===
+2025-02-28 21:02:02,425 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: oxford street
+    Type: road
+    Cost: 300
+    Base Rent: 26
+    
+        Color: green
+        Cost of Building a House: 200
+        Cost of Building a Hotel: 200
+        Rent with 4 Houses and 1 Hotel: 1275
+        Number of green properties owned: 0
+        
+Player Stats:
+
+    Cash: 1070
+    Owned Roads: 3
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.
+Decision: Decision: Buy
+Uncertainty: 0.1
+Context: Property Details:
+
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.
+Decision: Decision: Buy
+Uncertainty: 0.05
+
+    Current Property Details:
+    
+    Property Name: vine street
+    Type: road
+    Cost: 200
+    Base Rent: 16
+    
+        Color: orange
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 1000
+        Number of orange properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 730
+    Owned Roads: 5
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:02:02,425 - INFO - Fast reasoning: The property 'vine street' costs $200, which is within my cash limit of $730. Acquiring this property would strengthen my portfolio by adding an orange property, which is one of the more strategically valuable sets in Monopoly as it has a good balance of cost and return on investment. The base rent of $16 is reasonable and similar to my previous investments. Moreover, the potential rent with houses is substantial at $1000, making it quite lucrative if I can develop it with houses. Since I don't currently own any orange properties, this purchase would enable me to potentially collect the full set in the future, allowing for rent bonuses. Overall, buying 'vine street' is a strategic decision aimed at enhancing my property collection and increasing my long-term income prospects.
+2025-02-28 21:02:02,425 - INFO - Fast decision: True
+2025-02-28 21:02:02,425 - INFO - Fast uncertainty: 0.1
+2025-02-28 21:02:02,426 - INFO - ===
+2025-02-28 21:02:02,430 - INFO - ===
+2025-02-28 21:02:02,430 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"vine street_Alice\",\"timestamp\":\"2025-02-28T21:02:02.430002\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: vine street\\n    Type: road\\n    Cost: 200\\n    Base Rent: 16\\n    \\n        Color: orange\\n        Cost of Building a House: 100\\n        Cost of Building a Hotel: 100\\n        Rent with 4 Houses and 1 Hotel: 1000\\n        Number of orange properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 730\\n    Owned Roads: 5\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'vine street' costs $200, which is within my cash limit of $730. Acquiring this property would strengthen my portfolio by adding an orange property, which is one of the more strategically valuable sets in Monopoly as it has a good balance of cost and return on investment. The base rent of $16 is reasonable and similar to my previous investments. Moreover, the potential rent with houses is substantial at $1000, making it quite lucrative if I can develop it with houses. Since I don't currently own any orange properties, this purchase would enable me to potentially collect the full set in the future, allowing for rent bonuses. Overall, buying 'vine street' is a strategic decision aimed at enhancing my property collection and increasing my long-term income prospects.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+2025-02-28 21:02:02,430 - INFO - ===
+2025-02-28 21:02:02,671 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:02,673 - INFO - ===
+2025-02-28 21:02:02,673 - INFO - Step 9
+2025-02-28 21:02:02,673 - INFO - ===
+2025-02-28 21:02:02,673 - INFO - Custom buy function called for property: leicester square
+2025-02-28 21:02:02,916 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:02,918 - INFO - ===
+2025-02-28 21:02:02,918 - INFO - Query: Property details:
+
+    Property Name: leicester square
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+2025-02-28 21:02:02,918 - INFO - Retrieved similar documents: [
+  "{\"id\":\"be7f8f48-3a67-4950-b48f-e3304b763bee\",\"metadata\":{\"case_id\":\"coventry street_Alice\",\"timestamp\":\"2025-02-28T21:01:52.404930\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: coventry street\\n    Type: road\\n    Cost: 260\\n    Base Rent: 22\\n    \\n        Color: yellow\\n        Cost of Building a House: 150\\n        Cost of Building a Hotel: 150\\n        Rent with 4 Houses and 1 Hotel: 1150\\n        Number of yellow properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1330\\n    Owned Roads: 2\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'coventry street' costs $260, which is within my cash limit of $1330. Acquiring it would add a valuable yellow property to my portfolio, with a base rent of $22, significantly higher than my current properties. With my current strategy of collecting properties to build houses for higher rent, this property aligns well since the rent potential increases dramatically with homes. Additionally, investing in yellow properties can lead to strong returns, especially as they enhance my overall position in the game. Therefore, buying Coventry Street is a strategic move that supports my overall goal of maximizing profits through property accumulation and development.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}",
+  "{\"id\":\"f97877aa-fe3e-4d4c-81ed-da3a36823f4e\",\"metadata\":{\"case_id\":\"oxford street_Alice\",\"timestamp\":\"2025-02-28T21:01:57.248271\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: oxford street\\n    Type: road\\n    Cost: 300\\n    Base Rent: 26\\n    \\n        Color: green\\n        Cost of Building a House: 200\\n        Cost of Building a Hotel: 200\\n        Rent with 4 Houses and 1 Hotel: 1275\\n        Number of green properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1070\\n    Owned Roads: 3\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+]
+2025-02-28 21:02:02,918 - INFO - ===
+2025-02-28 21:02:09,344 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:02:19,404 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:02:19,413 - INFO - ===
+2025-02-28 21:02:19,413 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: coventry street
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+Player Stats:
+
+    Cash: 1330
+    Owned Roads: 2
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'coventry street' costs $260, which is within my cash limit of $1330. Acquiring it would add a valuable yellow property to my portfolio, with a base rent of $22, significantly higher than my current properties. With my current strategy of collecting properties to build houses for higher rent, this property aligns well since the rent potential increases dramatically with homes. Additionally, investing in yellow properties can lead to strong returns, especially as they enhance my overall position in the game. Therefore, buying Coventry Street is a strategic move that supports my overall goal of maximizing profits through property accumulation and development.
+Decision: Decision: Buy
+Uncertainty: 0.05
+Context: Property Details:
+
+    Property Name: oxford street
+    Type: road
+    Cost: 300
+    Base Rent: 26
+    
+        Color: green
+        Cost of Building a House: 200
+        Cost of Building a Hotel: 200
+        Rent with 4 Houses and 1 Hotel: 1275
+        Number of green properties owned: 0
+        
+Player Stats:
+
+    Cash: 1070
+    Owned Roads: 3
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.
+Decision: Decision: Buy
+Uncertainty: 0.1
+
+    Current Property Details:
+    
+    Property Name: leicester square
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 530
+    Owned Roads: 6
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:02:19,413 - INFO - Fast reasoning: The property 'leicester square' costs $260, which is out of the player's remaining cash of $530. Therefore, purchasing this property would leave them with $270, which does not provide sufficient funds for strategic investments or to absorb potential rent payments from other players. Additionally, while obtaining a yellow property could contribute to building a monopoly, the player has no other yellow properties at this moment, and the cost of building on it is high relative to their current cash flow. This financial leverage lowers the strategic value of making this purchase now. Thus, it would not be advisable to buy 'leicester square'.
+2025-02-28 21:02:19,413 - INFO - Fast decision: False
+2025-02-28 21:02:19,413 - INFO - Fast uncertainty: 0.2
+2025-02-28 21:02:19,413 - INFO - ===
+2025-02-28 21:02:19,413 - INFO - Slow input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: coventry street
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+Player Stats:
+
+    Cash: 1330
+    Owned Roads: 2
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'coventry street' costs $260, which is within my cash limit of $1330. Acquiring it would add a valuable yellow property to my portfolio, with a base rent of $22, significantly higher than my current properties. With my current strategy of collecting properties to build houses for higher rent, this property aligns well since the rent potential increases dramatically with homes. Additionally, investing in yellow properties can lead to strong returns, especially as they enhance my overall position in the game. Therefore, buying Coventry Street is a strategic move that supports my overall goal of maximizing profits through property accumulation and development.
+Decision: Decision: Buy
+Uncertainty: 0.05
+Context: Property Details:
+
+    Property Name: oxford street
+    Type: road
+    Cost: 300
+    Base Rent: 26
+    
+        Color: green
+        Cost of Building a House: 200
+        Cost of Building a Hotel: 200
+        Rent with 4 Houses and 1 Hotel: 1275
+        Number of green properties owned: 0
+        
+Player Stats:
+
+    Cash: 1070
+    Owned Roads: 3
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.
+Decision: Decision: Buy
+Uncertainty: 0.1
+
+    Current Property Details:
+    
+    Property Name: leicester square
+    Type: road
+    Cost: 260
+    Base Rent: 22
+    
+        Color: yellow
+        Cost of Building a House: 150
+        Cost of Building a Hotel: 150
+        Rent with 4 Houses and 1 Hotel: 1150
+        Number of yellow properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 530
+    Owned Roads: 6
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:02:19,413 - INFO - Slow reasoning: ### Reasoning:
+
+**Property Analysis**
+- **Leicester Square** is a yellow road property with a cost of $260 and a base rent of $22. 
+- Having no yellow properties currently, purchasing this could start a collection and potentially enable a rent bonus if future yellow properties are acquired.
+- The cost of building houses/hotels is reasonable, with a rental yield of $1,150 if fully developed.
+
+**Financial Analysis**
+- **Current Cash**: $530 – After purchasing, cash would decrease to $270.
+- **Owned Roads**: 6 – A relatively strong position and possibly benefiting from diverse rent collection.
+- Potential to be left with $270 may limit further acquisition of properties or construction without passing Go or collecting rent soon.
+
+**Strategic Analysis**
+- **Yellow properties** often provide a good balance of cost to rent ratio, especially in later stages.
+- Investing here might create a strong strategic position, especially when paired with more yellow properties.
+- The current cash position might strain immediate growth but offers potential for significant future gains if another yellow property is secured.
+
+**Current Position** and Future Consideration:
+- Current cash flow is limited but this purchase opens strategic possibilities.
+- Prioritize readiness to expand upon landing or acquiring the remaining yellow properties.
+
+### Conclusion
+Buying Leicester Square seems aligned with a strategy aimed at property diversity and future investments in yellow properties. However, the purchase will severely limit liquidity until further cash flow is realized. The decision presents a calculated risk that could lead to long-term benefits.
+
+### Decision: Buy
+### Uncertainty: 0.35
+2025-02-28 21:02:19,413 - INFO - Slow decision: True
+2025-02-28 21:02:19,413 - INFO - Slow uncertainty: 0.35
+2025-02-28 21:02:19,414 - INFO - ===
+2025-02-28 21:02:19,420 - INFO - ===
+2025-02-28 21:02:19,421 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"leicester square_Alice\",\"timestamp\":\"2025-02-28T21:02:19.420841\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: leicester square\\n    Type: road\\n    Cost: 260\\n    Base Rent: 22\\n    \\n        Color: yellow\\n        Cost of Building a House: 150\\n        Cost of Building a Hotel: 150\\n        Rent with 4 Houses and 1 Hotel: 1150\\n        Number of yellow properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 530\\n    Owned Roads: 6\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: ### Reasoning:\\n\\n**Property Analysis**\\n- **Leicester Square** is a yellow road property with a cost of $260 and a base rent of $22. \\n- Having no yellow properties currently, purchasing this could start a collection and potentially enable a rent bonus if future yellow properties are acquired.\\n- The cost of building houses/hotels is reasonable, with a rental yield of $1,150 if fully developed.\\n\\n**Financial Analysis**\\n- **Current Cash**: $530 \u2013 After purchasing, cash would decrease to $270.\\n- **Owned Roads**: 6 \u2013 A relatively strong position and possibly benefiting from diverse rent collection.\\n- Potential to be left with $270 may limit further acquisition of properties or construction without passing Go or collecting rent soon.\\n\\n**Strategic Analysis**\\n- **Yellow properties** often provide a good balance of cost to rent ratio, especially in later stages.\\n- Investing here might create a strong strategic position, especially when paired with more yellow properties.\\n- The current cash position might strain immediate growth but offers potential for significant future gains if another yellow property is secured.\\n\\n**Current Position** and Future Consideration:\\n- Current cash flow is limited but this purchase opens strategic possibilities.\\n- Prioritize readiness to expand upon landing or acquiring the remaining yellow properties.\\n\\n### Conclusion\\nBuying Leicester Square seems aligned with a strategy aimed at property diversity and future investments in yellow properties. However, the purchase will severely limit liquidity until further cash flow is realized. The decision presents a calculated risk that could lead to long-term benefits.\\n\\n### Decision: Buy\\n### Uncertainty: 0.35\\nDecision: Decision: Buy\\nUncertainty: 0.35\",\"type\":\"Document\"}"
+2025-02-28 21:02:19,421 - INFO - ===
+2025-02-28 21:02:19,755 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:19,769 - INFO - ===
+2025-02-28 21:02:19,769 - INFO - Step 10
+2025-02-28 21:02:19,769 - INFO - ===
+2025-02-28 21:02:19,769 - INFO - ===
+2025-02-28 21:02:19,769 - INFO - Step 11
+2025-02-28 21:02:19,769 - INFO - ===
+2025-02-28 21:02:19,770 - INFO - ===
+2025-02-28 21:02:19,770 - INFO - Step 12
+2025-02-28 21:02:19,770 - INFO - ===
+2025-02-28 21:02:19,770 - INFO - ===
+2025-02-28 21:02:19,770 - INFO - Step 13
+2025-02-28 21:02:19,770 - INFO - ===
+2025-02-28 21:02:19,770 - INFO - ===
+2025-02-28 21:02:19,770 - INFO - Calling buy_or_bid with args: ({'name': 'bow street', 'type': 'road', 'price': 180, 'rent': 14, 'rent_with_color_set': 28, 'rent_with_1_houses_0_hotels': 70, 'rent_with_2_houses_0_hotels': 200, 'rent_with_3_houses_0_hotels': 550, 'rent_with_4_houses_0_hotels': 750, 'rent_with_4_houses_1_hotels': 950, 'mortgage_value': 90, 'unmortgage_value': 99, 'houses_cost': 100, 'hotels_cost': 100, 'color': 'orange', 'board_num': 16, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:02:19,770 - INFO - buy_or_bid returned: buy
+2025-02-28 21:02:19,770 - INFO - ===
+2025-02-28 21:02:19,771 - INFO - ===
+2025-02-28 21:02:19,771 - INFO - Step 14
+2025-02-28 21:02:19,771 - INFO - ===
+2025-02-28 21:02:19,771 - INFO - Custom buy function called for property: whitehall
+2025-02-28 21:02:19,972 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:19,986 - INFO - ===
+2025-02-28 21:02:19,986 - INFO - Query: Property details:
+
+    Property Name: whitehall
+    Type: road
+    Cost: 140
+    Base Rent: 10
+    
+        Color: purple
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 750
+        Number of purple properties owned: 0
+        
+2025-02-28 21:02:19,987 - INFO - Retrieved similar documents: [
+  "{\"id\":\"80e8a197-df47-4e11-8386-8e89d175a59d\",\"metadata\":{\"case_id\":\"pall mall_Alice\",\"timestamp\":\"2025-02-28T21:01:59.657587\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pall mall\\n    Type: road\\n    Cost: 140\\n    Base Rent: 10\\n    \\n        Color: purple\\n        Cost of Building a House: 100\\n        Cost of Building a Hotel: 100\\n        Rent with 4 Houses and 1 Hotel: 750\\n        Number of purple properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 870\\n    Owned Roads: 4\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pall mall' costs $140, which is within my cash limit of $870. The base rent of $10 is attractive compared to similar properties I am considering. Although it does not provide a rent bonus alone as it's only a single property, it adds variety to my portfolio. Additionally, the cost of building houses is $100, allowing me to develop it relatively quickly if cash flow allows. The potential for rent with four houses or one hotel is substantial at $750, making it a lucrative investment. Given these factors, purchasing 'pall mall' strategically strengthens my position while still maintaining a healthy cash level for future moves.\\nDecision: Decision: Buy\\nUncertainty: 0.03\",\"type\":\"Document\"}",
+  "{\"id\":\"cd4e831d-7514-4ecb-8a70-d8dcb18a7d95\",\"metadata\":{\"case_id\":\"pentonville road_Alice\",\"timestamp\":\"2025-02-28T21:01:49.858420\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pentonville road\\n    Type: road\\n    Cost: 120\\n    Base Rent: 8\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 600\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}"
+]
+2025-02-28 21:02:19,987 - INFO - ===
+2025-02-28 21:02:21,480 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:02:21,528 - INFO - ===
+2025-02-28 21:02:21,528 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: pall mall
+    Type: road
+    Cost: 140
+    Base Rent: 10
+    
+        Color: purple
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 750
+        Number of purple properties owned: 0
+        
+Player Stats:
+
+    Cash: 870
+    Owned Roads: 4
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'pall mall' costs $140, which is within my cash limit of $870. The base rent of $10 is attractive compared to similar properties I am considering. Although it does not provide a rent bonus alone as it's only a single property, it adds variety to my portfolio. Additionally, the cost of building houses is $100, allowing me to develop it relatively quickly if cash flow allows. The potential for rent with four houses or one hotel is substantial at $750, making it a lucrative investment. Given these factors, purchasing 'pall mall' strategically strengthens my position while still maintaining a healthy cash level for future moves.
+Decision: Decision: Buy
+Uncertainty: 0.03
+Context: Property Details:
+
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.
+Decision: Decision: Buy
+Uncertainty: 0.05
+
+    Current Property Details:
+    
+    Property Name: whitehall
+    Type: road
+    Cost: 140
+    Base Rent: 10
+    
+        Color: purple
+        Cost of Building a House: 100
+        Cost of Building a Hotel: 100
+        Rent with 4 Houses and 1 Hotel: 750
+        Number of purple properties owned: 0
+        
+
+    Current Player Details:
+    
+    Cash: 183
+    Owned Roads: 8
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:02:21,528 - INFO - Fast reasoning: The property 'whitehall' costs $140, which is more than the player's current cash of $183. Hence, purchasing 'whitehall' is not feasible as the player cannot afford it. Therefore, the decision should be to not buy this property.
+2025-02-28 21:02:21,528 - INFO - Fast decision: False
+2025-02-28 21:02:21,528 - INFO - Fast uncertainty: 0.0
+2025-02-28 21:02:21,528 - INFO - ===
+2025-02-28 21:02:21,529 - INFO - ===
+2025-02-28 21:02:21,529 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"whitehall_Alice\",\"timestamp\":\"2025-02-28T21:02:21.529534\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: whitehall\\n    Type: road\\n    Cost: 140\\n    Base Rent: 10\\n    \\n        Color: purple\\n        Cost of Building a House: 100\\n        Cost of Building a Hotel: 100\\n        Rent with 4 Houses and 1 Hotel: 750\\n        Number of purple properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 183\\n    Owned Roads: 8\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'whitehall' costs $140, which is more than the player's current cash of $183. Hence, purchasing 'whitehall' is not feasible as the player cannot afford it. Therefore, the decision should be to not buy this property.\\nDecision: Decision: Don't buy\\nUncertainty: 0.0\",\"type\":\"Document\"}"
+2025-02-28 21:02:21,529 - INFO - ===
+2025-02-28 21:02:21,784 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:21,796 - INFO - ===
+2025-02-28 21:02:21,796 - INFO - Step 15
+2025-02-28 21:02:21,797 - INFO - ===
+2025-02-28 21:02:21,805 - INFO - ===
+2025-02-28 21:02:21,805 - INFO - Step 16
+2025-02-28 21:02:21,805 - INFO - ===
+2025-02-28 21:02:21,806 - INFO - ===
+2025-02-28 21:02:21,809 - INFO - Step 17
+2025-02-28 21:02:21,809 - INFO - ===
+2025-02-28 21:02:21,814 - INFO - ===
+2025-02-28 21:02:21,814 - INFO - Step 18
+2025-02-28 21:02:21,814 - INFO - ===
+2025-02-28 21:02:21,818 - INFO - ===
+2025-02-28 21:02:21,818 - INFO - Step 19
+2025-02-28 21:02:21,819 - INFO - ===
+2025-02-28 21:02:21,820 - INFO - ===
+2025-02-28 21:02:21,820 - INFO - Step 20
+2025-02-28 21:02:21,820 - INFO - ===
+2025-02-28 21:02:21,820 - INFO - Custom buy function called for property: marylebone station
+2025-02-28 21:02:22,021 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:22,024 - INFO - ===
+2025-02-28 21:02:22,024 - INFO - Query: Property details:
+
+    Property Name: marylebone station
+    Type: station
+    Cost: 200
+    Base Rent: 25
+    
+        Number of Stations Owned: 1
+        
+2025-02-28 21:02:22,024 - INFO - Retrieved similar documents: [
+  "{\"id\":\"cd4e831d-7514-4ecb-8a70-d8dcb18a7d95\",\"metadata\":{\"case_id\":\"pentonville road_Alice\",\"timestamp\":\"2025-02-28T21:01:49.858420\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: pentonville road\\n    Type: road\\n    Cost: 120\\n    Base Rent: 8\\n    \\n        Color: light_blue\\n        Cost of Building a House: 50\\n        Cost of Building a Hotel: 50\\n        Rent with 4 Houses and 1 Hotel: 600\\n        Number of light_blue properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1400\\n    Owned Roads: 1\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.\\nDecision: Decision: Buy\\nUncertainty: 0.05\",\"type\":\"Document\"}",
+  "{\"id\":\"f97877aa-fe3e-4d4c-81ed-da3a36823f4e\",\"metadata\":{\"case_id\":\"oxford street_Alice\",\"timestamp\":\"2025-02-28T21:01:57.248271\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: oxford street\\n    Type: road\\n    Cost: 300\\n    Base Rent: 26\\n    \\n        Color: green\\n        Cost of Building a House: 200\\n        Cost of Building a Hotel: 200\\n        Rent with 4 Houses and 1 Hotel: 1275\\n        Number of green properties owned: 0\\n        \\nPlayer Stats:\\n\\n    Cash: 1070\\n    Owned Roads: 3\\n    Owned Stations: 0\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.\\nDecision: Decision: Buy\\nUncertainty: 0.1\",\"type\":\"Document\"}"
+]
+2025-02-28 21:02:22,024 - INFO - ===
+2025-02-28 21:02:24,797 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-28 21:02:24,824 - INFO - ===
+2025-02-28 21:02:24,824 - INFO - Fast input: 
+    You are a strategic decision-maker playing a game of Monopoly.
+
+    Rules of the game:
+    1. Buying: Players can buy unowned properties they land on for the listed price. Mortgaging or trading properties owned properties is NOT allowed.
+    2. Building: Rent at a property increases with houses or hotels built. Four houses can be upgraded to a hotel.
+    3. Rent Bonus: Rent increases if a player owns all three properties of a color.
+    4. Winning: The last player remaining after others go bankrupt wins.
+
+    Your goal:
+    Decide whether to buy a property in Monopoly. Maximize your chances of winning the game with forward-thinking reasoning.
+
+    Past Related Decisions:
+    Context: Property Details:
+
+    Property Name: pentonville road
+    Type: road
+    Cost: 120
+    Base Rent: 8
+    
+        Color: light_blue
+        Cost of Building a House: 50
+        Cost of Building a Hotel: 50
+        Rent with 4 Houses and 1 Hotel: 600
+        Number of light_blue properties owned: 0
+        
+Player Stats:
+
+    Cash: 1400
+    Owned Roads: 1
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'pentonville road' costs $120, which is slightly more than the previous property but remains within my cash limit of $1400. Owning this property would allow me to start accumulating light blue properties alongside 'the angel islington'. Given that there are two light blue properties available, acquiring both would be critical for maximizing rent potential as I could then obtain a rent bonus. The base rent of $8 is higher than the previous property's base rent, making it a more attractive option. Also, both properties have the same cost for building houses, which lends to a uniform strategy for development. Considering my current holdings and the potential future returns, the addition of 'pentonville road' will strengthen my position in the game. Therefore, purchasing this property is a strategic move.
+Decision: Decision: Buy
+Uncertainty: 0.05
+Context: Property Details:
+
+    Property Name: oxford street
+    Type: road
+    Cost: 300
+    Base Rent: 26
+    
+        Color: green
+        Cost of Building a House: 200
+        Cost of Building a Hotel: 200
+        Rent with 4 Houses and 1 Hotel: 1275
+        Number of green properties owned: 0
+        
+Player Stats:
+
+    Cash: 1070
+    Owned Roads: 3
+    Owned Stations: 0
+    Owned Utilities: 0
+    
+Arguments: Reasoning: The property 'oxford street' costs $300, which is within my cash limit of $1070. Acquiring it would add to my real estate portfolio significantly as it is a green property, which is a high-value category in Monopoly. The base rent of $26 is higher than the previous properties I've considered and having just one green property would not give me a rent bonus, but it does position me towards potentially controlling this color in the future. The potential rent with houses or hotels is substantial at $1275, meaning investing in houses on this property could yield high returns. While the cash expenditure is significant, the potential growth is more than justified. Therefore, buying 'oxford street' is a strategic decision to strengthen my property collection and income potential.
+Decision: Decision: Buy
+Uncertainty: 0.1
+
+    Current Property Details:
+    
+    Property Name: marylebone station
+    Type: station
+    Cost: 200
+    Base Rent: 25
+    
+        Number of Stations Owned: 1
+        
+
+    Current Player Details:
+    
+    Cash: 338
+    Owned Roads: 10
+    Owned Stations: 1
+    Owned Utilities: 0
+    
+
+    Should the player buy this property? Justify your reasoning briefly.
+    Then, make your final decision. Output True to buy the property or False to not buy the property.
+    Finally, output a decimal percentage uncertainty between 0-1 to indicate your uncertainty in the decision.
+    
+2025-02-28 21:02:24,824 - INFO - Fast reasoning: The property 'marylebone station' costs $200, which is a significant portion of my current cash holdings of $338. However, the base rent of $25 is considerably higher than most properties I've discussed earlier, providing a decent return on investment. Owning multiple stations can provide substantial cumulative rental income as rent is determined by the number of stations owned. Currently, I own 1 station, and adding this would increase my total to 2. Furthermore, since there are only a limited number of stations that can be owned in the game, acquiring this property would ensure I secure a valuable part of the board. Although the cash expenditure is high relative to my current funds, the potential rental income justifies the risk. Given the strategic advantage of owning more stations, I will choose to buy this property.
+2025-02-28 21:02:24,824 - INFO - Fast decision: True
+2025-02-28 21:02:24,824 - INFO - Fast uncertainty: 0.15
+2025-02-28 21:02:24,824 - INFO - ===
+2025-02-28 21:02:24,824 - INFO - ===
+2025-02-28 21:02:24,824 - INFO - Adding document: "{\"id\":null,\"metadata\":{\"case_id\":\"marylebone station_Alice\",\"timestamp\":\"2025-02-28T21:02:24.824888\"},\"page_content\":\"Context: Property Details:\\n\\n    Property Name: marylebone station\\n    Type: station\\n    Cost: 200\\n    Base Rent: 25\\n    \\n        Number of Stations Owned: 1\\n        \\nPlayer Stats:\\n\\n    Cash: 338\\n    Owned Roads: 10\\n    Owned Stations: 1\\n    Owned Utilities: 0\\n    \\nArguments: Reasoning: The property 'marylebone station' costs $200, which is a significant portion of my current cash holdings of $338. However, the base rent of $25 is considerably higher than most properties I've discussed earlier, providing a decent return on investment. Owning multiple stations can provide substantial cumulative rental income as rent is determined by the number of stations owned. Currently, I own 1 station, and adding this would increase my total to 2. Furthermore, since there are only a limited number of stations that can be owned in the game, acquiring this property would ensure I secure a valuable part of the board. Although the cash expenditure is high relative to my current funds, the potential rental income justifies the risk. Given the strategic advantage of owning more stations, I will choose to buy this property.\\nDecision: Decision: Buy\\nUncertainty: 0.15\",\"type\":\"Document\"}"
+2025-02-28 21:02:24,824 - INFO - ===
+2025-02-28 21:02:25,153 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-02-28 21:02:25,169 - INFO - ===
+2025-02-28 21:02:25,169 - INFO - Step 21
+2025-02-28 21:02:25,169 - INFO - ===
+2025-02-28 21:02:25,171 - INFO - ===
+2025-02-28 21:02:25,171 - INFO - Step 22
+2025-02-28 21:02:25,171 - INFO - ===
+2025-02-28 21:02:25,172 - INFO - ===
+2025-02-28 21:02:25,172 - INFO - Step 23
+2025-02-28 21:02:25,172 - INFO - ===
+2025-02-28 21:02:25,173 - INFO - ===
+2025-02-28 21:02:25,173 - INFO - Step 24
+2025-02-28 21:02:25,173 - INFO - ===
+2025-02-28 21:02:25,175 - INFO - ===
+2025-02-28 21:02:25,175 - INFO - Step 25
+2025-02-28 21:02:25,175 - INFO - ===
+2025-02-28 21:02:25,175 - INFO - ===
+2025-02-28 21:02:25,175 - INFO - Step 26
+2025-02-28 21:02:25,175 - INFO - ===
+2025-02-28 21:02:25,176 - INFO - ===
+2025-02-28 21:02:25,176 - INFO - Calling buy_or_bid with args: ({'name': 'park lane', 'type': 'road', 'price': 350, 'rent': 35, 'rent_with_color_set': 70, 'rent_with_1_houses_0_hotels': 175, 'rent_with_2_houses_0_hotels': 500, 'rent_with_3_houses_0_hotels': 1100, 'rent_with_4_houses_0_hotels': 1300, 'rent_with_4_houses_1_hotels': 1500, 'mortgage_value': 175, 'unmortgage_value': 193, 'houses_cost': 200, 'hotels_cost': 200, 'color': 'blue', 'board_num': 37, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:02:25,176 - INFO - buy_or_bid returned: buy
+2025-02-28 21:02:25,176 - INFO - ===
+2025-02-28 21:02:25,176 - INFO - ===
+2025-02-28 21:02:25,176 - INFO - Step 27
+2025-02-28 21:02:25,176 - INFO - ===
+2025-02-28 21:02:25,177 - INFO - ===
+2025-02-28 21:02:25,177 - INFO - Step 28
+2025-02-28 21:02:25,177 - INFO - ===
+2025-02-28 21:02:25,177 - INFO - ===
+2025-02-28 21:02:25,177 - INFO - Step 29
+2025-02-28 21:02:25,177 - INFO - ===
+2025-02-28 21:02:25,178 - INFO - ===
+2025-02-28 21:02:25,178 - INFO - Step 30
+2025-02-28 21:02:25,178 - INFO - ===
+2025-02-28 21:02:25,178 - INFO - ===
+2025-02-28 21:02:25,178 - INFO - Step 31
+2025-02-28 21:02:25,178 - INFO - ===
+2025-02-28 21:02:25,179 - INFO - ===
+2025-02-28 21:02:25,179 - INFO - Step 32
+2025-02-28 21:02:25,179 - INFO - ===
+2025-02-28 21:02:25,179 - INFO - ===
+2025-02-28 21:02:25,179 - INFO - Step 33
+2025-02-28 21:02:25,179 - INFO - ===
+2025-02-28 21:02:25,180 - INFO - ===
+2025-02-28 21:02:25,180 - INFO - Step 34
+2025-02-28 21:02:25,180 - INFO - ===
+2025-02-28 21:02:25,180 - INFO - ===
+2025-02-28 21:02:25,180 - INFO - Calling buy_or_bid with args: ({'name': 'northumberland avenue', 'type': 'road', 'price': 160, 'rent': 12, 'rent_with_color_set': 24, 'rent_with_1_houses_0_hotels': 60, 'rent_with_2_houses_0_hotels': 180, 'rent_with_3_houses_0_hotels': 500, 'rent_with_4_houses_0_hotels': 700, 'rent_with_4_houses_1_hotels': 900, 'mortgage_value': 80, 'unmortgage_value': 88, 'houses_cost': 100, 'hotels_cost': 100, 'color': 'purple', 'board_num': 14, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:02:25,180 - INFO - buy_or_bid returned: buy
+2025-02-28 21:02:25,180 - INFO - ===
+2025-02-28 21:02:25,180 - INFO - ===
+2025-02-28 21:02:25,180 - INFO - Step 35
+2025-02-28 21:02:25,180 - INFO - ===
+2025-02-28 21:02:25,181 - INFO - ===
+2025-02-28 21:02:25,181 - INFO - Step 36
+2025-02-28 21:02:25,181 - INFO - ===
+2025-02-28 21:02:25,181 - INFO - ===
+2025-02-28 21:02:25,181 - INFO - Step 37
+2025-02-28 21:02:25,181 - INFO - ===
+2025-02-28 21:02:25,182 - INFO - ===
+2025-02-28 21:02:25,182 - INFO - Step 38
+2025-02-28 21:02:25,182 - INFO - ===
+2025-02-28 21:02:25,182 - INFO - ===
+2025-02-28 21:02:25,182 - INFO - Step 39
+2025-02-28 21:02:25,182 - INFO - ===
+2025-02-28 21:02:25,183 - INFO - ===
+2025-02-28 21:02:25,183 - INFO - Step 40
+2025-02-28 21:02:25,183 - INFO - ===
+2025-02-28 21:02:25,183 - INFO - ===
+2025-02-28 21:02:25,183 - INFO - Step 41
+2025-02-28 21:02:25,183 - INFO - ===
+2025-02-28 21:02:25,184 - INFO - ===
+2025-02-28 21:02:25,184 - INFO - Step 42
+2025-02-28 21:02:25,184 - INFO - ===
+2025-02-28 21:02:25,185 - INFO - ===
+2025-02-28 21:02:25,185 - INFO - Step 43
+2025-02-28 21:02:25,185 - INFO - ===
+2025-02-28 21:02:25,186 - INFO - ===
+2025-02-28 21:02:25,186 - INFO - Step 44
+2025-02-28 21:02:25,186 - INFO - ===
+2025-02-28 21:02:25,186 - INFO - ===
+2025-02-28 21:02:25,186 - INFO - Step 45
+2025-02-28 21:02:25,186 - INFO - ===
+2025-02-28 21:02:25,187 - INFO - ===
+2025-02-28 21:02:25,187 - INFO - Calling buy_or_bid with args: ({'name': 'trafalgar square', 'type': 'road', 'price': 240, 'rent': 20, 'rent_with_color_set': 40, 'rent_with_1_houses_0_hotels': 100, 'rent_with_2_houses_0_hotels': 300, 'rent_with_3_houses_0_hotels': 750, 'rent_with_4_houses_0_hotels': 925, 'rent_with_4_houses_1_hotels': 1100, 'mortgage_value': 120, 'unmortgage_value': 132, 'houses_cost': 150, 'hotels_cost': 150, 'color': 'red', 'board_num': 24, 'belongs_to': None, 'is_mortgaged': False},), kwargs: {}
+2025-02-28 21:02:25,187 - INFO - buy_or_bid returned: buy
+2025-02-28 21:02:25,187 - INFO - ===
+2025-02-28 21:02:25,187 - INFO - ===
+2025-02-28 21:02:25,187 - INFO - Step 46
+2025-02-28 21:02:25,187 - INFO - ===
+2025-02-28 21:02:25,187 - INFO - ===
+2025-02-28 21:02:25,188 - INFO - Step 47
+2025-02-28 21:02:25,188 - INFO - ===
+2025-02-28 21:02:25,188 - INFO - ===
+2025-02-28 21:02:25,188 - INFO - Step 48
+2025-02-28 21:02:25,188 - INFO - ===
+2025-02-28 21:02:25,188 - INFO - ===
+2025-02-28 21:02:25,188 - INFO - Step 49
+2025-02-28 21:02:25,188 - INFO - ===
+2025-02-28 21:02:25,189 - INFO - ===
+2025-02-28 21:02:25,189 - INFO - Step 50
+2025-02-28 21:02:25,189 - INFO - ===
+2025-02-28 21:02:25,189 - INFO - ===
+2025-02-28 21:02:25,189 - INFO - Step 51
+2025-02-28 21:02:25,189 - INFO - ===
+2025-02-28 21:02:25,190 - INFO - ===
+2025-02-28 21:02:25,190 - INFO - Step 52
+2025-02-28 21:02:25,190 - INFO - ===
+2025-02-28 21:02:25,191 - INFO - ===
+2025-02-28 21:02:25,191 - INFO - Step 53
+2025-02-28 21:02:25,191 - INFO - ===
+2025-02-28 21:02:25,191 - INFO - ===
+2025-02-28 21:02:25,192 - INFO - Step 54
+2025-02-28 21:02:25,192 - INFO - ===
+2025-02-28 21:02:25,192 - INFO - ===
+2025-02-28 21:02:25,192 - INFO - Step 55
+2025-02-28 21:02:25,192 - INFO - ===
+2025-02-28 21:02:25,193 - INFO - ===
+2025-02-28 21:02:25,193 - INFO - Step 56
+2025-02-28 21:02:25,193 - INFO - ===
+2025-02-28 21:02:25,193 - INFO - ===
+2025-02-28 21:02:25,193 - INFO - Step 57
+2025-02-28 21:02:25,193 - INFO - ===
+2025-02-28 21:02:25,194 - INFO - ===
+2025-02-28 21:02:25,194 - INFO - Step 58
+2025-02-28 21:02:25,194 - INFO - ===
+2025-02-28 21:02:25,194 - INFO - ===
+2025-02-28 21:02:25,194 - INFO - Step 59
+2025-02-28 21:02:25,194 - INFO - ===
+2025-02-28 21:02:25,195 - INFO - ===
+2025-02-28 21:02:25,195 - INFO - Step 60
+2025-02-28 21:02:25,195 - INFO - ===
+2025-02-28 21:02:25,195 - INFO - ===
+2025-02-28 21:02:25,195 - INFO - Step 61
+2025-02-28 21:02:25,195 - INFO - ===
+2025-02-28 21:02:25,196 - INFO - ===
+2025-02-28 21:02:25,196 - INFO - Step 62
+2025-02-28 21:02:25,196 - INFO - ===
+2025-02-28 21:02:25,196 - INFO - ===
+2025-02-28 21:02:25,196 - INFO - Step 63
+2025-02-28 21:02:25,196 - INFO - ===
+2025-02-28 21:02:25,196 - INFO - ===
+2025-02-28 21:02:25,196 - INFO - Step 64
+2025-02-28 21:02:25,196 - INFO - ===
+2025-02-28 21:02:25,197 - INFO - ===
+2025-02-28 21:02:25,197 - INFO - Step 65
+2025-02-28 21:02:25,197 - INFO - ===
+2025-02-28 21:02:25,197 - INFO - ===
+2025-02-28 21:02:25,197 - INFO - Step 66
+2025-02-28 21:02:25,197 - INFO - ===
+2025-02-28 21:02:25,198 - INFO - ===
+2025-02-28 21:02:25,198 - INFO - Step 67
+2025-02-28 21:02:25,198 - INFO - ===
+2025-02-28 21:02:25,199 - INFO - ===
+2025-02-28 21:02:25,200 - INFO - Step 68
+2025-02-28 21:02:25,200 - INFO - ===
+2025-02-28 21:02:25,201 - INFO - ===
+2025-02-28 21:02:25,201 - INFO - Step 69
+2025-02-28 21:02:25,201 - INFO - ===
+2025-02-28 21:02:25,201 - INFO - ===
+2025-02-28 21:02:25,201 - INFO - Step 70
+2025-02-28 21:02:25,201 - INFO - ===
+2025-02-28 21:02:25,202 - INFO - ===
+2025-02-28 21:02:25,202 - INFO - Step 71
+2025-02-28 21:02:25,202 - INFO - ===
+2025-02-28 21:02:25,203 - INFO - ===
+2025-02-28 21:02:25,203 - INFO - Step 72
+2025-02-28 21:02:25,203 - INFO - ===
+2025-02-28 21:02:25,203 - INFO - ===
+2025-02-28 21:02:25,203 - INFO - Step 73
+2025-02-28 21:02:25,203 - INFO - ===
+2025-02-28 21:02:25,204 - INFO - ===
+2025-02-28 21:02:25,204 - INFO - Step 74
+2025-02-28 21:02:25,204 - INFO - ===
+2025-02-28 21:02:25,204 - INFO - ===
+2025-02-28 21:02:25,204 - INFO - Step 75
+2025-02-28 21:02:25,204 - INFO - ===
+2025-02-28 21:02:25,205 - INFO - ===
+2025-02-28 21:02:25,205 - INFO - Step 76
+2025-02-28 21:02:25,205 - INFO - ===
+2025-02-28 21:02:25,205 - INFO - ===
+2025-02-28 21:02:25,205 - INFO - Step 77
+2025-02-28 21:02:25,205 - INFO - ===
+2025-02-28 21:02:25,205 - INFO - ===
+2025-02-28 21:02:25,205 - INFO - Step 78
+2025-02-28 21:02:25,206 - INFO - ===
+2025-02-28 21:02:25,206 - INFO - ===
+2025-02-28 21:02:25,206 - INFO - Step 79
+2025-02-28 21:02:25,206 - INFO - ===
+2025-02-28 21:02:25,206 - INFO - ===
+2025-02-28 21:02:25,206 - INFO - Step 80
+2025-02-28 21:02:25,206 - INFO - ===
+2025-02-28 21:02:25,207 - INFO - ===
+2025-02-28 21:02:25,207 - INFO - Step 81
+2025-02-28 21:02:25,207 - INFO - ===
+2025-02-28 21:02:25,207 - INFO - ===
+2025-02-28 21:02:25,207 - INFO - Step 82
+2025-02-28 21:02:25,207 - INFO - ===
+2025-02-28 21:02:25,207 - INFO - ===
+2025-02-28 21:02:25,207 - INFO - Step 83
+2025-02-28 21:02:25,207 - INFO - ===
+2025-02-28 21:02:25,208 - INFO - ===
+2025-02-28 21:02:25,208 - INFO - Step 84
+2025-02-28 21:02:25,208 - INFO - ===
+2025-02-28 21:02:25,208 - INFO - ===
+2025-02-28 21:02:25,208 - INFO - Step 85
+2025-02-28 21:02:25,208 - INFO - ===
+2025-02-28 21:02:25,208 - INFO - ===
+2025-02-28 21:02:25,208 - INFO - Step 86
+2025-02-28 21:02:25,208 - INFO - ===
+2025-02-28 21:02:25,209 - INFO - ===
+2025-02-28 21:02:25,209 - INFO - Step 87
+2025-02-28 21:02:25,209 - INFO - ===
+2025-02-28 21:02:25,209 - INFO - ===
+2025-02-28 21:02:25,209 - INFO - Step 88
+2025-02-28 21:02:25,209 - INFO - ===
+2025-02-28 21:02:25,209 - INFO - ===
+2025-02-28 21:02:25,209 - INFO - Step 89
+2025-02-28 21:02:25,209 - INFO - ===
+2025-02-28 21:02:25,210 - INFO - ===
+2025-02-28 21:02:25,210 - INFO - Step 90
+2025-02-28 21:02:25,210 - INFO - ===
+2025-02-28 21:02:25,210 - INFO - ===
+2025-02-28 21:02:25,210 - INFO - Step 91
+2025-02-28 21:02:25,210 - INFO - ===
+2025-02-28 21:02:25,210 - INFO - ===
+2025-02-28 21:02:25,210 - INFO - Step 92
+2025-02-28 21:02:25,210 - INFO - ===
+2025-02-28 21:02:25,211 - INFO - ===
+2025-02-28 21:02:25,211 - INFO - Step 93
+2025-02-28 21:02:25,211 - INFO - ===
+2025-02-28 21:02:25,211 - INFO - ===
+2025-02-28 21:02:25,211 - INFO - Step 94
+2025-02-28 21:02:25,211 - INFO - ===
+2025-02-28 21:02:25,211 - INFO - ===
+2025-02-28 21:02:25,211 - INFO - Step 95
+2025-02-28 21:02:25,211 - INFO - ===
+2025-02-28 21:02:25,211 - INFO - ===
+2025-02-28 21:02:25,212 - INFO - Step 96
+2025-02-28 21:02:25,212 - INFO - ===
+2025-02-28 21:02:25,212 - INFO - ===
+2025-02-28 21:02:25,212 - INFO - Step 97
+2025-02-28 21:02:25,212 - INFO - ===
+2025-02-28 21:02:25,212 - INFO - ===
+2025-02-28 21:02:25,212 - INFO - Step 98
+2025-02-28 21:02:25,212 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - Step 99
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - Step 100
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - Step 101
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,213 - INFO - Step 102
+2025-02-28 21:02:25,213 - INFO - ===
+2025-02-28 21:02:25,214 - INFO - ===
+2025-02-28 21:02:25,214 - INFO - Step 103
+2025-02-28 21:02:25,214 - INFO - ===
+2025-02-28 21:02:25,214 - INFO - ===
+2025-02-28 21:02:25,214 - INFO - Step 104
+2025-02-28 21:02:25,214 - INFO - ===
+2025-02-28 21:02:25,214 - INFO - ===
+2025-02-28 21:02:25,214 - INFO - Step 105
+2025-02-28 21:02:25,214 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - Step 106
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - Step 107
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - Step 108
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,215 - INFO - Step 109
+2025-02-28 21:02:25,215 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - Step 110
+2025-02-28 21:02:25,216 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - Step 111
+2025-02-28 21:02:25,216 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - Step 112
+2025-02-28 21:02:25,216 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - ===
+2025-02-28 21:02:25,216 - INFO - Step 113
+2025-02-28 21:02:25,217 - INFO - ===
+2025-02-28 21:02:25,217 - INFO - ===
+2025-02-28 21:02:25,217 - INFO - Step 114
+2025-02-28 21:02:25,217 - INFO - ===
+2025-02-28 21:02:25,217 - INFO - ===
+2025-02-28 21:02:25,217 - INFO - Step 115
+2025-02-28 21:02:25,217 - INFO - ===
+2025-02-28 21:02:25,217 - INFO - ===
+2025-02-28 21:02:25,217 - INFO - Step 116
+2025-02-28 21:02:25,217 - INFO - ===
+2025-02-28 21:02:25,218 - INFO - ===
+2025-02-28 21:02:25,218 - INFO - Step 117
+2025-02-28 21:02:25,218 - INFO - ===
+2025-02-28 21:02:25,218 - INFO - ===
+2025-02-28 21:02:25,218 - INFO - Step 118
+2025-02-28 21:02:25,218 - INFO - ===
+2025-02-28 21:02:25,218 - INFO - ===
+2025-02-28 21:02:25,218 - INFO - Step 119
+2025-02-28 21:02:25,218 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - Step 120
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - Step 121
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - Step 122
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,219 - INFO - Step 123
+2025-02-28 21:02:25,219 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - Step 124
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - Step 125
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - Step 126
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,220 - INFO - Step 127
+2025-02-28 21:02:25,220 - INFO - ===
+2025-02-28 21:02:25,221 - INFO - ===
+2025-02-28 21:02:25,221 - INFO - Step 128
+2025-02-28 21:02:25,221 - INFO - ===
+2025-02-28 21:02:25,221 - INFO - ===
+2025-02-28 21:02:25,221 - INFO - Step 129
+2025-02-28 21:02:25,221 - INFO - ===
+2025-02-28 21:02:25,221 - INFO - ===
+2025-02-28 21:02:25,221 - INFO - Step 130
+2025-02-28 21:02:25,221 - INFO - ===
+2025-02-28 21:02:25,222 - INFO - ===
+2025-02-28 21:02:25,222 - INFO - Step 131
+2025-02-28 21:02:25,222 - INFO - ===
+2025-02-28 21:02:25,222 - INFO - ===
+2025-02-28 21:02:25,222 - INFO - Step 132
+2025-02-28 21:02:25,222 - INFO - ===
+2025-02-28 21:02:25,222 - INFO - ===
+2025-02-28 21:02:25,222 - INFO - Step 133
+2025-02-28 21:02:25,222 - INFO - ===
+2025-02-28 21:02:25,223 - INFO - ===
+2025-02-28 21:02:25,223 - INFO - Step 134
+2025-02-28 21:02:25,223 - INFO - ===
+2025-02-28 21:02:25,223 - INFO - ===
+2025-02-28 21:02:25,223 - INFO - Step 135
+2025-02-28 21:02:25,223 - INFO - ===
+2025-02-28 21:02:25,223 - INFO - ===
+2025-02-28 21:02:25,223 - INFO - Step 136
+2025-02-28 21:02:25,223 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - Step 137
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - Step 138
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - Step 139
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,224 - INFO - Step 140
+2025-02-28 21:02:25,224 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - Step 141
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - Step 142
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - Step 143
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,225 - INFO - Step 144
+2025-02-28 21:02:25,225 - INFO - ===
+2025-02-28 21:02:25,226 - INFO - ===
+2025-02-28 21:02:25,226 - INFO - Step 145
+2025-02-28 21:02:25,226 - INFO - ===
+2025-02-28 21:02:25,635 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
