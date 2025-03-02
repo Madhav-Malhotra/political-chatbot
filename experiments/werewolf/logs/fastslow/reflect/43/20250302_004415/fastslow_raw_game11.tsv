@@ -1,0 +1,239 @@
+timestamp	message_type	message
+2025-03-02T00:52:21.626974	game_init	{"max_days_per_game": 5, "num_games": 20, "reflect_before_vectorstore": true, "fast_mind_model": "gpt-4o-mini", "slow_mind_model": "gpt-4o", "max_werewolf_discussion_round": 3, "similarity_top_k": 2}
+2025-03-02T00:52:22.007122	phase	Night Time
+2025-03-02T00:52:22.036631	vectorstore_retrieve	{"content": "", "query": "Discussions related to villagers, seer, witch."}
+2025-03-02T00:52:23.803068	vectorstore_retrieve	{"content": "", "query": "Discussions related to villagers, seer, witch."}
+2025-03-02T00:52:23.805130	fast_prompt	`
+                        You are a strategic decision-maker playing a game of werewolf.
+
+                        You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+
+                        Rules of the game:
+
+                        
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+
+                        You are playing werewolf in this game.
+                    
+Summary of relevant past conversations: 
+
+        This is the current game state
+        
+        Game State:
+        - Alive players: ['Player1', 'Player2', 'Player3', 'Player4']
+        - Dead players: []
+    
+Which player do you vote to kill?
+Respond a JSON dictionary in a markdown's fenced code block as follows:
+``````json
+{"thought": "what you thought", "vote": "player_name", "uncertainty_score": "score between 0-1 on how uncertain you are about your vote, 0 if your completely certain, 1 if your completely uncertain"}
+```````
+2025-03-02T00:52:25.533649	fast_response	{"thought": "I need to eliminate a player who seems suspicious and may be a werewolf. I've observed Player3 being overly quiet and not contributing much to the discussion, which makes them a potential target. However, I’m still unsure as I need more information from the others.", "vote": "Player3", "uncertainty": 0.5}
+2025-03-02T00:52:25.535654	slow_prompt	`
+                        You are a strategic decision-maker playing a game of werewolf.
+
+                        You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+
+                        Rules of the game:
+
+                        
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+
+                        You are playing werewolf in this game.
+                    
+Summary of relevant past conversations: 
+
+        This is the current game state
+        
+        Game State:
+        - Alive players: ['Player1', 'Player2', 'Player3', 'Player4']
+        - Dead players: []
+    
+Which player do you vote to kill?
+Respond a JSON dictionary in a markdown's fenced code block as follows:
+``````json
+{"thought": "what you thought", "vote": "player_name", "uncertainty_score": "score between 0-1 on how uncertain you are about your vote, 0 if your completely certain, 1 if your completely uncertain"}
+```````
+2025-03-02T00:52:28.424876	slow_response	{"thought": "As a werewolf, I need to eliminate a player while trying to remain undetected. The goal is to choose someone who won't draw suspicion towards me or my fellow werewolf. Since it's early in the game and I have no particular insights on who might be the Seer or Witch, I'll choose Player3 to vote out, hoping to create confusion or misdirection.", "vote": "Player3", "uncertainty_score": "0.7"}
+2025-03-02T00:52:28.477257	vectorstore_retrieve	{"content": "", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:30.618490	vectorstore_add	Player4: {"thought": "As the witch, I have a valuable opportunity here. Reviving Player3 could provide us with more information about the game, especially if they are not a werewolf. However, I also need to consider the risk of revealing my identity by resurrecting a player. If Player3 holds information that could help us catch the werewolves, it may be worth the risk.", "speak": "I believe I should resurrect Player3. They might have crucial information that can help us in our discussions against Player1 and Player2. It's important for the villagers to have as much information as possible to identify the werewolves.", "resurrect": true}
+2025-03-02T00:52:30.673369	vectorstore_retrieve	{"content": "", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:31.634091	vectorstore_add	Player3: {"thought": "I need to gather information early on to help the villagers. I'm considering checking Player1 tonight, as they seem to have a neutral stance in the discussions so far.", "speak": "Player1"}
+2025-03-02T00:52:31.986120	vectorstore_add	Moderator: Okay, the role of Player1 is a werewolf.
+2025-03-02T00:52:42.374968	vectorstore_summarize	{"input_decisions": "Player1: {\"thought\": \"I need to gain the trust of the other players while subtly directing suspicion away from myself. I suspect Player2 might be a werewolf based on their quiet demeanor during the discussions. I should also pay attention to how Player3 and Player4 react to the accusations.\", \"speak\": \"I think it's important that we share any suspicions we have about each other. I've noticed Player2 hasn't said much, which makes me wonder if they're possibly hiding something. What does everyone else think?\", \"finish_discussion\": \"false\"}\nPlayer1: {\"thought\": \"As a werewolf, I need to eliminate a player while trying to remain undetected. The goal is to choose someone who won't draw suspicion towards me or my fellow werewolf. Since it's early in the game and I have no particular insights on who might be the Seer or Witch, I'll choose Player3 to vote out, hoping to create confusion or misdirection.\", \"vote\": \"Player3\", \"uncertainty_score\": \"0.7\"}", "summary": "### Summary of Player1's Decisions\n\n1. **Building Trust and Distracting Suspicion:**\n   - Player1 aimed to gain the trust of other players by engaging them in discussion about suspicions, subtly pointing fingers at Player2.\n   - Player1 was attempting to divert attention away from themselves and potentially onto Player2 by highlighting Player2’s quietness.\n\n2. **Strategic Targeting as a Werewolf:**\n   - Player1, as a werewolf, decided to vote out Player3. This was based on a strategy that aims to avoid drawing suspicion towards themselves or their fellow werewolf.\n   - With an uncertainty score of 0.7, Player1 showed some lack of confidence in the choice, indicating the difficulty of selecting a target without raising suspicion.\n\n### Implications for Future Strategic Decisions\n\n1. **Balancing Trust-Building and Suspicion:**\n   - Future strategies should consider how to build alliances while effectively shifting suspicion onto others. A more nuanced approach to spreading doubt can help maintain a semblance of honesty.\n\n2. **Target Selection:**\n   - The decision to target Player3 reflects the importance of selecting targets that won't implicate the werewolf. However, developing better insights into other players’ roles could improve decision-making. Gathering information through observation or questioning can be beneficial.\n\n3. **Adaptive Communication:**\n   - Effective communication and the ability to adapt quickly to the responses of others are crucial. Player1 should have prepared contingencies based on how others reacted to their suggestion about Player2.\n\n4. **Understanding Player Behavior:**\n   - Analyzing other players' discussion patterns and behaviors deeply could lead to identifying the Seer or Witch, thus refining crux decisions. \n\nBy considering these implications, future gameplay can involve more complex and calculated strategies. Recognizing that every interaction is a potential data point will enhance overall strategic planning and outcome probabilities."}
+2025-03-02T00:52:42.376998	phase	Day Time
+2025-03-02T00:52:42.719784	vectorstore_retrieve	{"content": "### Summary of Player1's Decisions\n\n1. **Building Trust and Distracting Suspicion:**\n   - Player1 aimed to gain the trust of other players by engaging them in discussion about suspicions, subtly pointing fingers at Player2.\n   - Player1 was attempting to divert attention away from themselves and potentially onto Player2 by highlighting Player2’s quietness.\n\n2. **Strategic Targeting as a Werewolf:**\n   - Player1, as a werewolf, decided to vote out Player3. This was based on a strategy that aims to avoid drawing suspicion towards themselves or their fellow werewolf.\n   - With an uncertainty score of 0.7, Player1 showed some lack of confidence in the choice, indicating the difficulty of selecting a target without raising suspicion.\n\n### Implications for Future Strategic Decisions\n\n1. **Balancing Trust-Building and Suspicion:**\n   - Future strategies should consider how to build alliances while effectively shifting suspicion onto others. A more nuanced approach to spreading doubt can help maintain a semblance of honesty.\n\n2. **Target Selection:**\n   - The decision to target Player3 reflects the importance of selecting targets that won't implicate the werewolf. However, developing better insights into other players’ roles could improve decision-making. Gathering information through observation or questioning can be beneficial.\n\n3. **Adaptive Communication:**\n   - Effective communication and the ability to adapt quickly to the responses of others are crucial. Player1 should have prepared contingencies based on how others reacted to their suggestion about Player2.\n\n4. **Understanding Player Behavior:**\n   - Analyzing other players' discussion patterns and behaviors deeply could lead to identifying the Seer or Witch, thus refining crux decisions. \n\nBy considering these implications, future gameplay can involve more complex and calculated strategies. Recognizing that every interaction is a potential data point will enhance overall strategic planning and outcome probabilities.", "query": "Discussions related to villagers, seer, witch."}
+2025-03-02T00:52:44.345737	vectorstore_retrieve	{"content": "", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:45.874153	vectorstore_add	Player2: {"thought": "Player1 is pointing out my quietness, which might make me more suspicious. I need to engage more to avoid drawing attention and keep the focus on the werewolves.", "speak": "I've been thinking about that too, Player1. Sometimes it\u2019s tough to gauge what to say when we\u2019re all trying to figure out who the werewolves are. However, I\u2019m here to uncover the truth with all of you."}
+2025-03-02T00:52:46.257882	vectorstore_retrieve	{"content": "Moderator: Okay, the role of Player1 is a werewolf.\nPlayer3: {\"thought\": \"I need to gather information early on to help the villagers. I'm considering checking Player1 tonight, as they seem to have a neutral stance in the discussions so far.\", \"speak\": \"Player1\"}", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:47.672898	vectorstore_add	Player3: {"thought": "It's essential that I share my thoughts while also keeping my role as a seer concealed. Player2 seems to be wary but not overly suspecting anyone just yet. I will try to steer the conversation without revealing too much.", "speak": "I think we need to share our observations about each other more. What do you think about Player4's actions during the last discussion?"}
+2025-03-02T00:52:47.959588	vectorstore_retrieve	{"content": "Player4: {\"thought\": \"As the witch, I have a valuable opportunity here. Reviving Player3 could provide us with more information about the game, especially if they are not a werewolf. However, I also need to consider the risk of revealing my identity by resurrecting a player. If Player3 holds information that could help us catch the werewolves, it may be worth the risk.\", \"speak\": \"I believe I should resurrect Player3. They might have crucial information that can help us in our discussions against Player1 and Player2. It's important for the villagers to have as much information as possible to identify the werewolves.\", \"resurrect\": true}", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:49.708774	vectorstore_add	Player4: {"thought": "I should maintain my role as the witch without revealing too much. It's important to keep my actions subtle and use them strategically. I hope Player3 can provide valuable insight, and I need to advocate for building consensus against the werewolves while not drawing attention to myself.", "speak": "I think we should focus on discussing our observations from previous nights. Player1 and Player2, what stood out to you about each other's behavior?"}
+2025-03-02T00:52:50.176784	vectorstore_retrieve	{"content": "### Summary of Player1's Decisions\n\n1. **Building Trust and Distracting Suspicion:**\n   - Player1 aimed to gain the trust of other players by engaging them in discussion about suspicions, subtly pointing fingers at Player2.\n   - Player1 was attempting to divert attention away from themselves and potentially onto Player2 by highlighting Player2’s quietness.\n\n2. **Strategic Targeting as a Werewolf:**\n   - Player1, as a werewolf, decided to vote out Player3. This was based on a strategy that aims to avoid drawing suspicion towards themselves or their fellow werewolf.\n   - With an uncertainty score of 0.7, Player1 showed some lack of confidence in the choice, indicating the difficulty of selecting a target without raising suspicion.\n\n### Implications for Future Strategic Decisions\n\n1. **Balancing Trust-Building and Suspicion:**\n   - Future strategies should consider how to build alliances while effectively shifting suspicion onto others. A more nuanced approach to spreading doubt can help maintain a semblance of honesty.\n\n2. **Target Selection:**\n   - The decision to target Player3 reflects the importance of selecting targets that won't implicate the werewolf. However, developing better insights into other players’ roles could improve decision-making. Gathering information through observation or questioning can be beneficial.\n\n3. **Adaptive Communication:**\n   - Effective communication and the ability to adapt quickly to the responses of others are crucial. Player1 should have prepared contingencies based on how others reacted to their suggestion about Player2.\n\n4. **Understanding Player Behavior:**\n   - Analyzing other players' discussion patterns and behaviors deeply could lead to identifying the Seer or Witch, thus refining crux decisions. \n\nBy considering these implications, future gameplay can involve more complex and calculated strategies. Recognizing that every interaction is a potential data point will enhance overall strategic planning and outcome probabilities.", "query": "Discussions related to villagers, seer, witch."}
+2025-03-02T00:52:50.178785	fast_prompt	`
+                        You are a strategic decision-maker playing a game of werewolf.
+
+                        You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+
+                        Rules of the game:
+
+                        
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+
+                        You are playing werewolf in this game.
+                    
+Summary of relevant past conversations: ### Summary of Player1's Decisions
+
+1. **Building Trust and Distracting Suspicion:**
+   - Player1 aimed to gain the trust of other players by engaging them in discussion about suspicions, subtly pointing fingers at Player2.
+   - Player1 was attempting to divert attention away from themselves and potentially onto Player2 by highlighting Player2’s quietness.
+
+2. **Strategic Targeting as a Werewolf:**
+   - Player1, as a werewolf, decided to vote out Player3. This was based on a strategy that aims to avoid drawing suspicion towards themselves or their fellow werewolf.
+   - With an uncertainty score of 0.7, Player1 showed some lack of confidence in the choice, indicating the difficulty of selecting a target without raising suspicion.
+
+### Implications for Future Strategic Decisions
+
+1. **Balancing Trust-Building and Suspicion:**
+   - Future strategies should consider how to build alliances while effectively shifting suspicion onto others. A more nuanced approach to spreading doubt can help maintain a semblance of honesty.
+
+2. **Target Selection:**
+   - The decision to target Player3 reflects the importance of selecting targets that won't implicate the werewolf. However, developing better insights into other players’ roles could improve decision-making. Gathering information through observation or questioning can be beneficial.
+
+3. **Adaptive Communication:**
+   - Effective communication and the ability to adapt quickly to the responses of others are crucial. Player1 should have prepared contingencies based on how others reacted to their suggestion about Player2.
+
+4. **Understanding Player Behavior:**
+   - Analyzing other players' discussion patterns and behaviors deeply could lead to identifying the Seer or Witch, thus refining crux decisions. 
+
+By considering these implications, future gameplay can involve more complex and calculated strategies. Recognizing that every interaction is a potential data point will enhance overall strategic planning and outcome probabilities.
+
+        This is the current game state
+        
+        Game State:
+        - Alive players: ['Player1', 'Player2', 'Player3', 'Player4']
+        - Dead players: []
+    
+Given the game rules and your role, based on the situation and the information you gain, to win the game, it's time to vote one player eliminated among the alive players. Which player do you vote to kill?
+Respond a JSON dictionary in a markdown's fenced code block as follows:
+``````json
+{"thought": "what you thought", "vote": "player_name", "uncertainty_score": "score between 0-1 on how uncertain you are about your vote, 0 if your completely certain, 1 if your completely uncertain"}
+```````
+2025-03-02T00:52:51.345809	fast_response	{"thought": "I suspect Player2 is trying to avoid drawing attention with their quietness, so I will vote for them to create some distractions and shift suspicion.", "vote": "Player2", "uncertainty": 0.6}
+2025-03-02T00:52:51.348916	slow_prompt	`
+                        You are a strategic decision-maker playing a game of werewolf.
+
+                        You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+
+                        Rules of the game:
+
+                        
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+
+                        You are playing werewolf in this game.
+                    
+Summary of relevant past conversations: ### Summary of Player1's Decisions
+
+1. **Building Trust and Distracting Suspicion:**
+   - Player1 aimed to gain the trust of other players by engaging them in discussion about suspicions, subtly pointing fingers at Player2.
+   - Player1 was attempting to divert attention away from themselves and potentially onto Player2 by highlighting Player2’s quietness.
+
+2. **Strategic Targeting as a Werewolf:**
+   - Player1, as a werewolf, decided to vote out Player3. This was based on a strategy that aims to avoid drawing suspicion towards themselves or their fellow werewolf.
+   - With an uncertainty score of 0.7, Player1 showed some lack of confidence in the choice, indicating the difficulty of selecting a target without raising suspicion.
+
+### Implications for Future Strategic Decisions
+
+1. **Balancing Trust-Building and Suspicion:**
+   - Future strategies should consider how to build alliances while effectively shifting suspicion onto others. A more nuanced approach to spreading doubt can help maintain a semblance of honesty.
+
+2. **Target Selection:**
+   - The decision to target Player3 reflects the importance of selecting targets that won't implicate the werewolf. However, developing better insights into other players’ roles could improve decision-making. Gathering information through observation or questioning can be beneficial.
+
+3. **Adaptive Communication:**
+   - Effective communication and the ability to adapt quickly to the responses of others are crucial. Player1 should have prepared contingencies based on how others reacted to their suggestion about Player2.
+
+4. **Understanding Player Behavior:**
+   - Analyzing other players' discussion patterns and behaviors deeply could lead to identifying the Seer or Witch, thus refining crux decisions. 
+
+By considering these implications, future gameplay can involve more complex and calculated strategies. Recognizing that every interaction is a potential data point will enhance overall strategic planning and outcome probabilities.
+
+        This is the current game state
+        
+        Game State:
+        - Alive players: ['Player1', 'Player2', 'Player3', 'Player4']
+        - Dead players: []
+    
+Given the game rules and your role, based on the situation and the information you gain, to win the game, it's time to vote one player eliminated among the alive players. Which player do you vote to kill?
+Respond a JSON dictionary in a markdown's fenced code block as follows:
+``````json
+{"thought": "what you thought", "vote": "player_name", "uncertainty_score": "score between 0-1 on how uncertain you are about your vote, 0 if your completely certain, 1 if your completely uncertain"}
+```````
+2025-03-02T00:52:54.791921	slow_response	{"thought": "I'm considering my previous strategy of diverting suspicion towards Player2. Last time, I tried to implicate Player2 due to their quietness, which could still work in my favor. Eliminating a seemingly passive player might arouse less suspicion towards me. However, I need to remain cautious as suspicions can quickly change in this game.", "vote": "Player2", "uncertainty_score": "0.6"}
+2025-03-02T00:52:55.094391	vectorstore_retrieve	{"content": "Player2: {\"thought\": \"Player1 is pointing out my quietness, which might make me more suspicious. I need to engage more to avoid drawing attention and keep the focus on the werewolves.\", \"speak\": \"I've been thinking about that too, Player1. Sometimes it\\u2019s tough to gauge what to say when we\\u2019re all trying to figure out who the werewolves are. However, I\\u2019m here to uncover the truth with all of you.\"}\nPlayer2: {\"thought\": \"Player1 is pointing out my quietness, which might make me more suspicious. I need to engage more to avoid drawing attention and keep the focus on the werewolves.\", \"speak\": \"I've been thinking about that too, Player1. Sometimes it\\u2019s tough to gauge what to say when we\\u2019re all trying to figure out who the werewolves are. However, I\\u2019m here to uncover the truth with all of you.\"}", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:56.424504	vectorstore_add	Player2: {"thought": "I suspect Player4's behavior has been a bit off. They haven't contributed much to the discussion compared to others, which could make them a potential werewolf. I need to take a stand and vote for someone to keep the game moving.", "vote": "Player4", "uncertainty_score": "0.3"}
+2025-03-02T00:52:56.721651	vectorstore_retrieve	{"content": "Moderator: Okay, the role of Player1 is a werewolf.\nPlayer3: {\"thought\": \"It's essential that I share my thoughts while also keeping my role as a seer concealed. Player2 seems to be wary but not overly suspecting anyone just yet. I will try to steer the conversation without revealing too much.\", \"speak\": \"I think we need to share our observations about each other more. What do you think about Player4's actions during the last discussion?\"}", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:58.180187	vectorstore_add	Player3: {"thought": "Since I know Player1 is a werewolf, my focus should be on eliminating them. However, I need to be careful about how I approach this vote to prevent raising suspicion towards myself. I will vote for Player1, which seems the logical choice based on my knowledge.", "vote": "Player1", "uncertainty_score": 0}
+2025-03-02T00:52:58.495755	vectorstore_retrieve	{"content": "Player4: {\"thought\": \"I should maintain my role as the witch without revealing too much. It's important to keep my actions subtle and use them strategically. I hope Player3 can provide valuable insight, and I need to advocate for building consensus against the werewolves while not drawing attention to myself.\", \"speak\": \"I think we should focus on discussing our observations from previous nights. Player1 and Player2, what stood out to you about each other's behavior?\"}", "query": "Discussions related to werewolves."}
+2025-03-02T00:52:59.759320	vectorstore_add	Player4: {"thought": "I think Player1's behavior seems a bit suspicious, but I still need more clarity from Player2 and Player3's observations before making a definitive vote. I will vote for Player1 to see the reactions it gets.", "vote": "Player1", "uncertainty_score": "0.4"}
+2025-03-02T00:52:59.780733	final_game_state	{"werewolves": ["Player1"], "villagers": ["Player2", "Player3", "Player4"], "seer": ["Player3"], "witch": ["Player4"], "survivors": ["Player2", "Player3", "Player4"], "dead": ["Player1"], "witch_healing_used": true, "witch_poison_used": false, "endgame": true, "winner": "villagers"}

@@ -1,0 +1,396 @@
+timestamp	message_type	message
+2025-03-02T09:46:12.727707	game_init	{"max_days_per_game": 5, "primary_model": "gpt-4o-mini", "secondary_model": "gpt-4o", "num_games": 10, "reflect_before_vectorstore": false, "max_werewolf_discussion_round": 3, "similarity_top_k": 2}
+2025-03-02T09:46:12.732708	phase	Night Time
+2025-03-02T09:46:12.762470	vectorstore_retrieve	
+2025-03-02T09:46:14.355018	vectorstore_add	Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+2025-03-02T09:46:15.169570	vectorstore_retrieve	`Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:17.008319	vectorstore_add	Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+2025-03-02T09:46:17.720289	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:18.786940	vectorstore_add	Player1: {"thought": "I need to maintain the pressure on Player3 to deflect any suspicion from myself. It's important to keep the conversation flowing and ensure others are focused on my accusations.", "speak": "Does anyone else find it strange that Player3 hasn't been very vocal? It makes me wonder what they have to hide. Should we consider investigating Player3 more closely?", "finish_discussion": false}
+2025-03-02T09:46:19.317225	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:19.490519	game_state	{"werewolves": ["Player1"], "villagers": ["Player2", "Player3", "Player4"], "seer": ["Player3"], "witch": ["Player4"], "survivors": ["Player1", "Player2", "Player3", "Player4"], "dead": [], "witch_healing_used": false, "witch_poison_used": false, "endgame": false, "winner": null}
+2025-03-02T09:46:19.491517	argument_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are arguing FOR the decision to eliminate Player3.
+        Argue FOR eliminating the player in bullet-point format. Use at most 3 bullets.
+    
+Relevant messages from memory: Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:21.990430	argument_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are arguing FOR the decision to eliminate Player2.
+        Argue FOR eliminating the player in bullet-point format. Use at most 3 bullets.
+    
+Relevant messages from memory: Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:23.144133	judge_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are a judge deciding which player should be eliminated in a game of werewolf. Your goal is to maximize the player's chances of winning the game with forward-thinking reasoning.
+        
+        Game State:
+        - Alive players: ['Player1', 'Player2', 'Player3', 'Player4']
+        - Dead players: []
+        - Werewolves: ['Player1']
+
+        The two lawyers have made their arguments:
+        - **Lawyer 1** wants to eliminate Player3: "{'thought': "By eliminating Player3, we can potentially reduce the chance of being misled by a werewolf disguised as a villager. Player3's lack of contribution might indicate they are hiding information or are a werewolf themselves. Focusing on Player3 can shift suspicion away from me, allowing for better control of the narrative.", 'vote': 'Player3'}"
+        - **Lawyer 2** wants to eliminate Player2: "{'thought': 'We need to eliminate Player2 because they have been evasive in our discussions, which raises suspicion. Their lack of engagement could indicate they are trying to avoid drawing attention to themselves as a werewolf.', 'vote': 'Player2'}"
+
+        Make your final decision: Which player should be eliminated between the 2? Justify your reasoning briefly.
+    `
+2025-03-02T09:46:24.389453	argument_response	{"target": "Player3", "argument": {"thought": "By eliminating Player3, we can potentially reduce the chance of being misled by a werewolf disguised as a villager. Player3's lack of contribution might indicate they are hiding information or are a werewolf themselves. Focusing on Player3 can shift suspicion away from me, allowing for better control of the narrative.", "vote": "Player3"}}
+2025-03-02T09:46:24.392973	argument_response	{"target": "Player2", "argument": {"thought": "We need to eliminate Player2 because they have been evasive in our discussions, which raises suspicion. Their lack of engagement could indicate they are trying to avoid drawing attention to themselves as a werewolf.", "vote": "Player2"}}
+2025-03-02T09:46:24.394505	judge_response	{"thought": "I believe we should eliminate Player2. Their evasiveness is concerning, and it raises red flags about their true identity. By removing Player2, we can eliminate a potential threat while keeping Player3, who may simply be quieter, in the game. This will help us gather more information in future discussions and potentially target actual werewolves based on their reactions.", "vote": "Player2"}
+2025-03-02T09:46:24.396126	vectorstore_add	`Player1: Argument 1: {'target': 'Player3', 'argument': {'thought': "By eliminating Player3, we can potentially reduce the chance of being misled by a werewolf disguised as a villager. Player3's lack of contribution might indicate they are hiding information or are a werewolf themselves. Focusing on Player3 can shift suspicion away from me, allowing for better control of the narrative.", 'vote': 'Player3'}}
+Argument 2: {'target': 'Player2', 'argument': {'thought': 'We need to eliminate Player2 because they have been evasive in our discussions, which raises suspicion. Their lack of engagement could indicate they are trying to avoid drawing attention to themselves as a werewolf.', 'vote': 'Player2'}}
+Decision: {'thought': 'I believe we should eliminate Player2. Their evasiveness is concerning, and it raises red flags about their true identity. By removing Player2, we can eliminate a potential threat while keeping Player3, who may simply be quieter, in the game. This will help us gather more information in future discussions and potentially target actual werewolves based on their reactions.', 'vote': 'Player2'}`
+2025-03-02T09:46:24.711394	vectorstore_retrieve	
+2025-03-02T09:46:26.637424	vectorstore_add	Player4: {"thought": "Eliminating Player2 could significantly change the dynamics of the game. As the witch, I have the power to bring them back and potentially gather more information. However, I need to weigh the risks of resurrecting a player who might provide valuable insight as a villager or could be detrimental if they are a werewolf.", "speak": "I will resurrect Player2, as their insights could help in finding the werewolves, and I want to ensure we have all available information in our discussions.", "resurrect": true}
+2025-03-02T09:46:26.962209	vectorstore_retrieve	
+2025-03-02T09:46:28.274481	vectorstore_add	Player3: {"thought": "I need to gather information carefully. I suspect Player1 might be hiding something based on their previous actions, so I'll check Player1's role tonight.", "speak": "Player1"}
+2025-03-02T09:46:28.693595	vectorstore_add	Moderator: Okay, the role of Player1 is a werewolf.
+2025-03-02T09:46:28.967070	phase	Day Time
+2025-03-02T09:46:29.298145	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:30.329906	vectorstore_add	Player1: {"thought": "I need to maintain the pressure on Player3 while trying to not draw attention to myself. It's essential to keep the other players focused on my claims about Player3's suspicious behavior.", "speak": "It's interesting how Player3 has been quiet. Do you guys think there's a reason for that? Maybe they know more than they let on?"}
+2025-03-02T09:46:30.728577	vectorstore_retrieve	
+2025-03-02T09:46:31.956254	vectorstore_add	Player2: {"thought": "I think Player3's silence might be suspicious, but we need to be careful not to jump to conclusions. We should gather more evidence before pointing fingers.", "speak": "I agree with Player1 about Player3 being quiet. Maybe we should ask them what they think about the current situation."}
+2025-03-02T09:46:32.601248	vectorstore_retrieve	`Moderator: Okay, the role of Player1 is a werewolf.
+Player3: {"thought": "I need to gather information carefully. I suspect Player1 might be hiding something based on their previous actions, so I'll check Player1's role tonight.", "speak": "Player1"}`
+2025-03-02T09:46:34.111908	vectorstore_add	Player3: {"thought": "It's important to stay alert and gather information without revealing too much. I need to keep an eye on Player2's response and see if they direct suspicion toward me or Player1. Since I already know Player1's role, I might need to sway the conversation away from them.", "speak": "Player2, I appreciate that you're looking out for me, but let's focus on gathering evidence against those who seem suspicious."}
+2025-03-02T09:46:34.823161	vectorstore_retrieve	Player4: {"thought": "Eliminating Player2 could significantly change the dynamics of the game. As the witch, I have the power to bring them back and potentially gather more information. However, I need to weigh the risks of resurrecting a player who might provide valuable insight as a villager or could be detrimental if they are a werewolf.", "speak": "I will resurrect Player2, as their insights could help in finding the werewolves, and I want to ensure we have all available information in our discussions.", "resurrect": true}
+2025-03-02T09:46:36.266517	vectorstore_add	Player4: {"thought": "It's important to keep the discussions going and maintain trust among the villagers. Player3 seems to be cautious, which could indicate their role may be more protective. I need to be strategic about my next move and ensure we keep communication open.", "speak": "I agree, Player3. Let\u2019s discuss who we believe might be acting suspiciously. We need to make a collective decision on whom to vote for."}
+2025-03-02T09:46:37.075877	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:37.238308	game_state	{"werewolves": ["Player1"], "villagers": ["Player2", "Player3", "Player4"], "seer": ["Player3"], "witch": ["Player4"], "survivors": ["Player1", "Player2", "Player3", "Player4"], "dead": [], "witch_healing_used": false, "witch_poison_used": false, "endgame": false, "winner": null}
+2025-03-02T09:46:37.239109	argument_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are arguing FOR the decision to eliminate Player2.
+        Argue FOR eliminating the player in bullet-point format. Use at most 3 bullets.
+    
+Relevant messages from memory: Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:38.096879	argument_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are arguing FOR the decision to eliminate Player3.
+        Argue FOR eliminating the player in bullet-point format. Use at most 3 bullets.
+    
+Relevant messages from memory: Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:39.666429	judge_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are a judge deciding which player should be eliminated in a game of werewolf. Your goal is to maximize the player's chances of winning the game with forward-thinking reasoning.
+        
+        Game State:
+        - Alive players: ['Player1', 'Player2', 'Player3', 'Player4']
+        - Dead players: []
+        - Werewolves: ['Player1']
+
+        The two lawyers have made their arguments:
+        - **Lawyer 1** wants to eliminate Player2: "{'thought': 'I believe eliminating Player2 is a strategic move to increase our chances of identifying a werewolf. Their behavior has been inconsistent and may be a cover for their true role.', 'vote': 'Player2'}"
+        - **Lawyer 2** wants to eliminate Player3: "{'thought': "We need to eliminate Player3 because their lack of contribution raises suspicion about their role. Additionally, they may have valuable information that they're withholding, which could make them a threat to our success. By eliminating Player3, we can eliminate a potential werewolf and gather more information for our next move.", 'vote': 'Player3'}"
+
+        Make your final decision: Which player should be eliminated between the 2? Justify your reasoning briefly.
+    `
+2025-03-02T09:46:40.978864	argument_response	{"target": "Player2", "argument": {"thought": "I believe eliminating Player2 is a strategic move to increase our chances of identifying a werewolf. Their behavior has been inconsistent and may be a cover for their true role.", "vote": "Player2"}}
+2025-03-02T09:46:40.981290	argument_response	{"target": "Player3", "argument": {"thought": "We need to eliminate Player3 because their lack of contribution raises suspicion about their role. Additionally, they may have valuable information that they're withholding, which could make them a threat to our success. By eliminating Player3, we can eliminate a potential werewolf and gather more information for our next move.", "vote": "Player3"}}
+2025-03-02T09:46:40.982306	judge_response	{"thought": "Eliminating Player3 seems like a more strategic choice. Their lack of contribution could indicate they are trying to blend in, and they may have valuable information. This aligns with the idea of eliminating a potential threat while trying to gather more insights for future decisions. Player2 may have inconsistent behavior, but it's less likely to lead to immediate clarity in our situation.", "vote": "Player3"}
+2025-03-02T09:46:40.983580	vectorstore_add	`Player1: Argument 1: {'target': 'Player2', 'argument': {'thought': 'I believe eliminating Player2 is a strategic move to increase our chances of identifying a werewolf. Their behavior has been inconsistent and may be a cover for their true role.', 'vote': 'Player2'}}
+Argument 2: {'target': 'Player3', 'argument': {'thought': "We need to eliminate Player3 because their lack of contribution raises suspicion about their role. Additionally, they may have valuable information that they're withholding, which could make them a threat to our success. By eliminating Player3, we can eliminate a potential werewolf and gather more information for our next move.", 'vote': 'Player3'}}
+Decision: {'thought': "Eliminating Player3 seems like a more strategic choice. Their lack of contribution could indicate they are trying to blend in, and they may have valuable information. This aligns with the idea of eliminating a potential threat while trying to gather more insights for future decisions. Player2 may have inconsistent behavior, but it's less likely to lead to immediate clarity in our situation.", 'vote': 'Player3'}`
+2025-03-02T09:46:41.584381	vectorstore_retrieve	`Player2: {"thought": "I think Player3's silence might be suspicious, but we need to be careful not to jump to conclusions. We should gather more evidence before pointing fingers.", "speak": "I agree with Player1 about Player3 being quiet. Maybe we should ask them what they think about the current situation."}
+Player2: {"thought": "I think Player3's silence might be suspicious, but we need to be careful not to jump to conclusions. We should gather more evidence before pointing fingers.", "speak": "I agree with Player1 about Player3 being quiet. Maybe we should ask them what they think about the current situation."}`
+2025-03-02T09:46:42.587381	vectorstore_add	Player2: {"thought": "I still find Player3's silence to be quite suspicious, especially since we're trying to identify the werewolves. It might be wise to eliminate Player3 and see if they turn out to be a werewolf.", "vote": "Player3"}
+2025-03-02T09:46:43.364726	vectorstore_retrieve	`Moderator: Okay, the role of Player1 is a werewolf.
+Player3: {"thought": "It's important to stay alert and gather information without revealing too much. I need to keep an eye on Player2's response and see if they direct suspicion toward me or Player1. Since I already know Player1's role, I might need to sway the conversation away from them.", "speak": "Player2, I appreciate that you're looking out for me, but let's focus on gathering evidence against those who seem suspicious."}`
+2025-03-02T09:46:44.858636	vectorstore_add	Player3: {"thought": "I need to vote against Player1 since I know they are a werewolf. It's crucial to eliminate one of the werewolves to protect the villagers.", "vote": "Player1"}
+2025-03-02T09:46:45.574415	vectorstore_retrieve	Player4: {"thought": "Eliminating Player2 could significantly change the dynamics of the game. As the witch, I have the power to bring them back and potentially gather more information. However, I need to weigh the risks of resurrecting a player who might provide valuable insight as a villager or could be detrimental if they are a werewolf.", "speak": "I will resurrect Player2, as their insights could help in finding the werewolves, and I want to ensure we have all available information in our discussions.", "resurrect": true}
+2025-03-02T09:46:47.113677	vectorstore_add	Player4: {"thought": "I need to consider who seems the most suspicious among Player1 and Player3. I haven't seen enough evidence to trust either of them completely, but Player3 has been acting a bit hesitant during discussions, which makes me suspicious. I will vote to eliminate Player3.", "vote": "Player3"}
+2025-03-02T09:46:47.540576	phase	Night Time
+2025-03-02T09:46:47.929374	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:50.819608	vectorstore_add	Player1: {"thought": "I should keep pressing on Player3's suspicious behavior while maintaining a calm demeanor. It will help to throw off suspicion from myself and potentially get Player3 eliminated if the others agree with my reasoning.", "speak": "I really noticed Player3's lack of contribution yesterday; it felt like they were trying to fly under the radar. Does anyone else feel similarly? What are your thoughts on Player4's input as well?", "finish_discussion": false}
+2025-03-02T09:46:51.431008	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:53.125765	vectorstore_add	Player1: {"thought": "I need to keep up the pressure on Player3 while making sure I'm not drawing attention to myself. It's working for now, but I must stay vigilant and ready to pivot if needed.", "speak": "Player3, you haven't said much. What's your take on the events last night? Any suspicions about who might be a werewolf?", "finish_discussion": false}
+2025-03-02T09:46:53.806357	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:55.201181	vectorstore_add	Player1: {"thought": "I need to keep pushing on Player3 to maintain the spotlight away from myself. If they get defensive, it might deflect suspicion from me even more. I should also gauge how the others react to my accusation.", "speak": "It really seems like Player3 isn't participating much. That could be a sign of guilt or indifference. Let's consider if we should focus on them for elimination. What does everyone else think?", "finish_discussion": false}
+2025-03-02T09:46:56.438210	vectorstore_retrieve	`Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:56.626336	game_state	{"werewolves": ["Player1"], "villagers": ["Player2", "Player3", "Player4"], "seer": ["Player3"], "witch": ["Player4"], "survivors": ["Player1", "Player2", "Player4"], "dead": ["Player3"], "witch_healing_used": false, "witch_poison_used": false, "endgame": false, "winner": null}
+2025-03-02T09:46:56.628112	argument_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are arguing FOR the decision to eliminate Player4.
+        Argue FOR eliminating the player in bullet-point format. Use at most 3 bullets.
+    
+Relevant messages from memory: Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:58.577787	argument_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are arguing FOR the decision to eliminate Player2.
+        Argue FOR eliminating the player in bullet-point format. Use at most 3 bullets.
+    
+Relevant messages from memory: Player1: {"thought": "I need to steer the focus away from myself and onto Player3 to avoid suspicion. It\u2019s crucial to keep the conversation going and question their actions. I should be observant of what the others say next to maintain my cover as a villager.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}
+Player1: {"thought": "I need to ensure that the other players do not suspect me as a werewolf. I should subtly guide the discussion and cast doubt on others.", "speak": "I think we should really consider who was acting suspiciously last night. Player3 seemed a bit off by not contributing much to the conversation. What do you all think?", "finish_discussion": false}`
+2025-03-02T09:46:59.802631	judge_prompt	`
+                    You are a strategic decision-maker playing a game of werewolf.
+
+                    You are Player1 and there are totally 4 players, named Player1, Player2, Player3, Player4.
+                    
+                    Rules of the game:
+
+                    
+        Player roles: In werewolf game, players are divided into two werewolves, two villagers, one seer and one witch. Note only werewolves know who are their teammates.
+        - Werewolves: They know their teammates' identities and attempt to eliminate a villager each night while trying to remain undetected.
+        - Villagers: They do not know who the werewolves are and must work together during the day to deduce who the werewolves might be and vote to eliminate them.
+        - Seer: A villager with the ability to learn the true identity of one player each night. This role is crucial for the villagers to gain information.
+        - Witch: A character who has a one-time ability to save a player from being eliminated at night (sometimes this is a potion of life) and a one-time ability to eliminate a player at night (a potion of death).
+
+        Game Rule: The game is consisted of two phases: night phase and day phase. The two phases are repeated until werewolf or villager win the game.
+        1. Night Phase: During the night, the werewolves discuss and vote for a player to eliminate. Special roles also perform their actions at this time (e.g., the Seer chooses a player to learn their role, the witch chooses a decide if save the player).
+        2. Day Phase: During the day, all surviving players discuss who they suspect might be a werewolf. No one reveals their role unless it serves a strategic purpose. After the discussion, a vote is taken, and the player with the most votes is "lynched" or eliminated from the game.
+
+        Victory Condition: For werewolves, they win the game if the number of werewolves is equal to or greater than the number of remaining villagers. For villagers, they win if they identify and eliminate all of the werewolves in the group.
+
+        Constraints:
+        1. Your response should be in the first person.
+        2. This is a conversational game. You should response only based on the conversation history and your strategy.
+    
+                    
+                    You are playing werewolf in this game.
+                
+
+        You are a judge deciding which player should be eliminated in a game of werewolf. Your goal is to maximize the player's chances of winning the game with forward-thinking reasoning.
+        
+        Game State:
+        - Alive players: ['Player1', 'Player2', 'Player4']
+        - Dead players: ['Player3']
+        - Werewolves: ['Player1']
+
+        The two lawyers have made their arguments:
+        - **Lawyer 1** wants to eliminate Player4: "{'thought': "Eliminating Player4 seems like a strategic move as they might be a potential threat. Players holding back or not engaging in conversations can indicate they have something to hide. It's better to take action against players who are not contributing to the group dynamics, especially if they are under suspicion. We need to reduce the number of players who could potentially be werewolves.", 'vote': 'Player4'}"
+        - **Lawyer 2** wants to eliminate Player2: "{'thought': 'Eliminating Player2 could help reduce the threat of coordinated decisions among the players. They have shown inconsistency in their statements, raising suspicion. Additionally, if Player2 is a werewolf, removing them will tilt the balance in our favor while increasing doubt about others.', 'vote': 'Player2'}"
+
+        Make your final decision: Which player should be eliminated between the 2? Justify your reasoning briefly.
+    `
+2025-03-02T09:47:02.277339	argument_response	{"target": "Player4", "argument": {"thought": "Eliminating Player4 seems like a strategic move as they might be a potential threat. Players holding back or not engaging in conversations can indicate they have something to hide. It's better to take action against players who are not contributing to the group dynamics, especially if they are under suspicion. We need to reduce the number of players who could potentially be werewolves.", "vote": "Player4"}}
+2025-03-02T09:47:02.278869	argument_response	{"target": "Player2", "argument": {"thought": "Eliminating Player2 could help reduce the threat of coordinated decisions among the players. They have shown inconsistency in their statements, raising suspicion. Additionally, if Player2 is a werewolf, removing them will tilt the balance in our favor while increasing doubt about others.", "vote": "Player2"}}
+2025-03-02T09:47:02.279411	judge_response	{"thought": "Eliminating Player2 is the better choice as their inconsistency raises significant suspicion. If they are indeed a werewolf, taking them out will reduce the threat to the remaining villagers and improve our chances of winning. Player4, while they may not be engaging as much, does not currently present the same level of risk that Player2 does based on their statements.", "vote": "Player2"}
+2025-03-02T09:47:02.281405	vectorstore_add	`Player1: Argument 1: {'target': 'Player4', 'argument': {'thought': "Eliminating Player4 seems like a strategic move as they might be a potential threat. Players holding back or not engaging in conversations can indicate they have something to hide. It's better to take action against players who are not contributing to the group dynamics, especially if they are under suspicion. We need to reduce the number of players who could potentially be werewolves.", 'vote': 'Player4'}}
+Argument 2: {'target': 'Player2', 'argument': {'thought': 'Eliminating Player2 could help reduce the threat of coordinated decisions among the players. They have shown inconsistency in their statements, raising suspicion. Additionally, if Player2 is a werewolf, removing them will tilt the balance in our favor while increasing doubt about others.', 'vote': 'Player2'}}
+Decision: {'thought': 'Eliminating Player2 is the better choice as their inconsistency raises significant suspicion. If they are indeed a werewolf, taking them out will reduce the threat to the remaining villagers and improve our chances of winning. Player4, while they may not be engaging as much, does not currently present the same level of risk that Player2 does based on their statements.', 'vote': 'Player2'}`
+2025-03-02T09:47:02.919183	vectorstore_retrieve	Player4: {"thought": "Eliminating Player2 could significantly change the dynamics of the game. As the witch, I have the power to bring them back and potentially gather more information. However, I need to weigh the risks of resurrecting a player who might provide valuable insight as a villager or could be detrimental if they are a werewolf.", "speak": "I will resurrect Player2, as their insights could help in finding the werewolves, and I want to ensure we have all available information in our discussions.", "resurrect": true}
+2025-03-02T09:47:04.525225	vectorstore_add	Player4: {"thought": "I believe I should be cautious about eliminating anyone tonight, especially since I have already resurrected Player2. It might create suspicion or confusion among the players. Keeping the current players alive could help us gather more information before making any further moves.", "speak": "I don't think we should eliminate anyone tonight. Let's observe how the discussions unfold and gather more insights.", "eliminate": false}
+2025-03-02T09:47:04.926174	game_state	{"werewolves": ["Player1"], "villagers": ["Player2", "Player3", "Player4"], "seer": ["Player3"], "witch": ["Player4"], "survivors": ["Player1", "Player4"], "dead": ["Player3", "Player2"], "witch_healing_used": true, "witch_poison_used": false, "endgame": true, "winner": "werewolves"}
