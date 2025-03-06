@@ -8,7 +8,7 @@ This paper explores the generalisability of LLMs as decision-making assistants. 
 **Keywords:** AI, decision-making, game agents, RAG
 
 ## Experiment Overview
-We test different agent architectures, memory architectures, and agent behaviors using two popular games: Monopoly and Werewolf. These environments serve as objective platforms for evaluating decision-making skills that are transferable to more complex real-world applications, such as political legislation analysis.
+We tested different agent architectures, memory architectures, and agent behaviors using two popular games: Monopoly and Werewolf. These environments serve as objective platforms for evaluating decision-making skills that are transferable to more complex real-world applications, such as political legislation analysis.
 
 ## Architectures tested
 **Agent Architectures:**
@@ -30,7 +30,7 @@ In each case, the average win rate in these games is used as a proxy for the age
 ## How to Run the Experiment
 
 ### Prerequisites  
-Ensure you have Python installed and install the required dependencies:  
+Ensure you have Python 3.12 ≥ installed.
 
 ### **1. Clone the Repository**  
 Open a terminal and run:  
@@ -47,12 +47,19 @@ source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
 ```
 
 ### **3. Install Dependencies**  
-Install the required Python packages using:  
+Install the required Python packages:
+
+To run a **Monopoly** experiment -> 
 ```bash
-pip install -r requirements.txt
+pip install -r experiments/monopoly/requirements.txt
 ```
+To run a **Werewolf** experiment -> 
+```bash
+pip install -r experiments/werewolf/requirements.txt
+```
+
 ### **4. Set up .env File**
-Add OPENAI_API_KEY to the .env file.
+Make a .env file in the root directory and add OPENAI_API_KEY.
 ```bash
 OPENAI_API_KEY=YOUR_API_KEY
 ```
